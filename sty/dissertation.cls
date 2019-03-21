@@ -66,7 +66,7 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/lipsum
 \RequirePackage{lipsum}
 % http://www.ctan.org/tex-archive/usergrps/dante/dtk
-\RequirePackage{dtklogos}
+\RequirePackage{sty/dtklogos}
 
 % =============================================================================
 
