@@ -1,23 +1,15 @@
 \chapter{Project Execution}
 \label{chap:execution}
 
-{\bf A topic-specific chapter, of roughly $15$ pages}
-\vspace{1cm}
-
-\noindent
+A topic-specific chapter, of roughly $15$ pages
 This chapter is intended to describe what you did: the goal is to explain the main activity or activities, of any type, which constituted your work during the project.
 
 The content is highly topic-specific, but for many projects it will make sense to split the chapter into two sections:
-
-one will discuss the design of something (e.g., some hardware or software, or an algorithm, or experiment), including any rationale or decisions made,
-
-and the other will discuss how this design was realised via some form of implementation.
-
-
+ - one will discuss the design of something (e.g., some hardware or software, or an algorithm, or experiment), including any rationale or decisions made,
+ - and the other will discuss how this design was realised via some form of implementation.
 
 This is, of course, far from ideal for {\em many} project topics.  Some
 situations which clearly require a different approach include:
-
 \begin{itemize}
 \item In a project where asymptotic analysis of some algorithm is the goal,
       there is no real ``design and implementation'' in a traditional sense
@@ -30,16 +22,44 @@ situations which clearly require a different approach include:
 \end{itemize}
 
 
-\noindent
-
 Note that it is common to include evidence of ``best practice'' project management (e.g., use of version control, choice of programming language and so on).
 Rather than simply a rote list, make sure any such content is useful and/or informative in some way: for example, if there was a decision to be made then explain the trade-offs and implications involved.
 
 
 
 
+The main activity of this project was the development of a mobile app that can usefully analyse climbers' technique and then provide them with various data whilst they traing or climb for fun.
+
+Despite researching a variety of different devices and form factors, one of the key aims of the project was always to make the final product as accessible as possible, therefore a OS-independant mobile app was decided upon.
+By not using any extra equipment such as wristbands or 3d-cameras, the scope and ability of the final product could be limited, however this also removing the need for anything but just a phone, which almost everyone owns.
 
 
+It was decided that two inputs that mobiles can easily capture and would potentially be most useful for the analysis of climbing technique were video recordings and accelerometer data. Video recordings can be analysed with various computer vision techniques, and accelerometer data can be shown on a graph and analysed statistically for various outputs.
+
+\subparagraph{Tool Selection}
+Next was to find a app-development tool that is quick and easy to use (for fast iterations of the app), can easily import or link to the OpenCV Library (for the computer vision aspect), and is platform-independant (so any mobile phone owners can use the app).
+
+Unity was chosen as it meets all three of those requirements, with a wide variety of Assets that can be imported.
+Also having used the tool for games development in the past I was very familiar with using Unity, and knew that iterating over app designs would be quick and easy enough, compared to wasting time learning how to use other tools when this one met all the requirements needed.
+
+For version-control I used git, backed-up on GitHub. Being a one-person project I rarely bothered with the overhead of using different branches, but the ability to roll-back to working code, and to stash and pop various files at different times was very useful.
+Once or twice a week, after a new feature or big set of fixes had been added, I would up-version the app, and release a compiled .apk binary to the GitHub page.
+This allowed the easy installing of older versions when trying to find a bug, as well as a clear documentation of all fixes and features included at each minor version upgrade.
+
+
+\subsection{Basic Developement}
+The initial survey showed interest in computer-vision-aided video analysis of climbing, however I was wary of spending too much time trying to get it working. Using previous recordings from my own climbing, the low-resolution images were noisy and not easy to detect much meaningful information, even when run slowly on a PC.
+I knew that attempting to run intensive computer-vision algorithms on a mobile-phone processor in real-time would be even less effective, as well as draining battery very fast.
+
+
+Therefore the CV-related analysis was put on the back burner for a while, I kept chipping away at the problem, but focussed my main attention on the iterative developement of the actual app.
+
+This required an app to use in the in-field studies, so I created a very simple app that could just record accelerometer data dn displayed the max and min.
+
+
+smoothness
+
+graph
 
 
 
