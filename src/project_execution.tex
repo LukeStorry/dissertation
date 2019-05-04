@@ -245,20 +245,44 @@ However, keeping in with the theme of accessibility and only using a mobile app,
 
 
 \subsection{Networking Options}
+A variety of different options for networking two phones together was explored, including Unity's built-in Networking, Wifi-Direct, uploading to the Cloud, and Bluetooth.
 
 
-Got second phone, looking into network possibilities
-Unity networking - from games project known issues, plus requires a usable LAN, not easy with mobile at wall
-Wifidirect?
-Bluetooth?
-Upload to cloud server?
+These options had varying levels of support through Assets on Unity's Asset store, but after looking through reviews most of them were deprecated, broken, or did not fit my needs.
+Those that potentially did cost upwards of £50, which is not something I was willing to pay for a library of code that may not do what I needed.
 
-No unity support for any of them and all paid assets spenny.
+Thus I would have to code my own solution.
 
-Uploading to cloud would require scalability and some sort of user profile or something to differentiate and request the correct download, also slow/expensive for video? - nice sideeffect of backing up user profile to web, but then both devices signed in on same user?
-Wifidirect has weird docs and unity had deprecated a lot of networking stuff, cant find info - look more?
-Bluetooth seems simpler, nees a java code to be written then imported to unity as .jar plugin but possibility there.
-What about utilising messaging? People could just send the file via social media apps?
+\subsubsection{Unity's built-in Networking}
+The only one of the above options that is provided in some way by Unity is the Networking libraries, at first this ease seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
+However, the UNet library provided by Unity had just recently been deprecated, and the replacement networking service was under development at the time of writing this, so documentation was often unavailable or incorrect.
+
+Also, despite the ability to link two phones whilst I was at home, when at the climbing walls this presented an issue as the free WIFI provided at these wall often blocked LAN connections between devices.
+
+\subsubsection{Cloud}
+Uploading to cloud would require coding some sort of scalable server and storage, something I could definitely do, but this level of overhead for what should just be the sharing of files and syncing between two devices that are located physically very close together felt like an unnessecary amount of work and time spent, as well as potentially very slow to upload and download video over the web every time if a more physical solution was possible.
+The requirement to add some sort of user profiles, or unique code to differentiate and request the correct download, was a big added complexity, yet one that could have given an added bonus of users' data being backed up to the web and usable in other ways, ie from a web platform.
+Maybe something to look into in the future, but not really within the scope of this project, a cloud server isn't the solution to this specific problem.
+
+\subsubsection{Wifi-Direct}
+<insert definiton>
+Although this seems like a great technology, and could be ideal for this specific use case, the few docs<insert ref?> I could find online that detailed using Wifidirect with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
+
+
+\subsubsection{Bluetooth or NFC}
+An idealised use-case for the app that presented itself in wizard-of-oz testing was to just bump two mobile devices together, "pairing" them using NFC, and then using the longer-range Bluetooth to transfer a sync command and any video or data files.
+
+Unfortunately, this uncovered a large issue with using Unity as my tool of choice - no support or libraries for either Bluetooth or NFC. 
+Even the single free Asset online was broken, leaving me with one solution: to write my own \verb|Java| plugin using Android Studio to connect the NFC and handle Bluetooth file transfers, then expose public functions in a compiled \verb|.jar| file that the \verb|C#| Unity code could then connect to.
+
+After spending a few days writing this code, it worked occasionally, but the interplay between the two sets of libraries, on a variety of Android devices, was just too unstable.
+
+\subsubsection{Native Messaging}
+Both Android and IOS provide easy APIs for sharing files via social media or email, which is utilised by the free NativeShare Asset I downloaded from the Unity Asset Store <cite>.
+Using this library, the JSON representation of each climb could easily be shared between devices using a messaging app, which was enough of a solution to this problem to allow me to take it to the testers and determine whether a more streamlined solution was needed.
+
+During testing, climbers could record a climb, view it, and then jsut hit share to send that file to a friend, who could import that file and view it on their phone.
+Despite the time spent on unsuccessfully trying to get Bluetooth working with my plugin, by simply using this same button, my testers could use Bluetooth instead of the messaging app to send the climb files.
 
 
 
