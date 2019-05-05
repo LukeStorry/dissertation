@@ -189,23 +189,28 @@ When the potential of a "smoothness" score was brought up in discussions, they t
 Seeing a range of graphs on the spreadsheet software, where some were (1) consistently fluid with no big spikes, (2) mostly flat with a few large spikes,  and (3) some with a lot of small spikes, was very interesting. 
 See figure <<??>>
 After discussion with some climbing coaches, and talking through the BMC Fundamentals <CITE> they suggested that what they often tell clients to do is to climb the same easy climb repeatedly, aiming for as fluid and smooth a motion as possible. This is clearly visibly in the 1st
-Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important. This style of climb can be seen in graph 2 of figre <?>.
+Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important. This style of climb can be seen in graph 2 of figure <?>.
 What the coaches said they would (in general) judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient and often is the factor that prevents the successful summit of a harder climb,   
 
 However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
 Instead I opted to try and find some form of quantizable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet 
 
 
-\begin{table}[t]
+\begin{table}[h]
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-                    & metric1   & metric2 & metric3   & metric 4    \\ \hline
-climb1 - static     & 0         & 0       & 0         & 0           \\ \hline
-climb1 - dynamic    & 0         & 0       & 0         & 0           \\ \hline
-climb2 - static     & 0         & 0       & 0         & 0           \\ \hline
-climb2 - normal     & 0         & 0       & 0         & 0           \\ \hline
-climb2 - static     & 0         & 0       & 0         & 0           \\ \hline
+climb  &  climber & style & min & max & mean & var & var-diff & lag-auto \\ \hline
+purple v0 route & 1 & static  & 0.29 & 3.50 & 1.10 & 0.12 & 0.06 & 1617.90 \\ \hline
+purple v0 route & 3 & static  & 0.07 & 6.39 & 1.09 & 0.16 & 0.12 & 1600.46 \\ \hline
+purple v0 route & 2 & dynamic & 0.16 & 10.96 & 1.11 & 0.39 & 0.18 & 2150.63 \\ \hline
+purple v0 route & 3 & dynamic & 0.20 & 9.76 & 1.14 & 0.40 & 0.16 & 1931.72 \\ \hline
+yellow v1 route & 1 & static  & 0.21 & 2.20 & 1.06 & 0.05 & 0.02 & 795.96 \\ \hline
+yellow v1 route & 1 & hybrid & 0.06 & 11.41 & 1.06 & 0.17 & 0.11 & 2176.12 \\ \hline
+yellow v1 route & 1 & dynamic & 0.03 & 8.20 & 1.07 & 0.21 & 0.10 & 1862.94 \\ \hline
+pink v2 route & 2 & static & 0.45 & 2.74 & 1.04 & 0.04 & 0.03 & 793.59 \\ \hline
+pink v2 route & 2 & hybrid & 0.21 & 4.04 & 1.05 & 0.08 & 0.03 & 1939.77 \\ \hline
+pink v2 route & 2 & dynamic & 0.16 & 10.32 & 1.12 & 0.25 & 0.15 & 1826.36 \\ \hline
 
 \end{tabular}
 \caption{Comparison of Smoothness Score Candidates}
