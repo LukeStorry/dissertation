@@ -222,7 +222,7 @@ $$
 \frac{\sum(n_{i} - \bar{n})(n_{i+k} - \bar{n})}
       {\sum(n_{i} - \bar{n})^{2} }
 $$
-Slightly more convoluted, but my idea for this metric was that if each datapoint is closely correlated with its successive datapoint, then the overall line would have less jolts, but run in a more smoothly varying way.
+Slightly more convoluted, but my idea for this metric was that if each data-point is closely correlated with its successive data-point, then the overall line would have less jolts, but run in a more smoothly varying way.
 
 
 I had three test climbers climb three different routes, in either a deliberately static style, a deliberately dynamic style, and their usual style: a hybrid of the two.
@@ -262,30 +262,50 @@ My testers found comparing and discussing numbers in the 20-100 range much easie
 
 
 \section{Graphing Acceleration Data}
-X axis of graph is time
-realisation that recording might not be consistent accross devices - tested 
-Looked into time variation - also saved timestamp to csv, accelerometer data coming in varies in time, from 0.006s to 0.52s 
-Especially issue when phone detected large acceleration, wanted to change screen orientation, which slows down update.
-Removed auto-orient,  moved to using fixedupdate and set timestep to 0.05 => 20 samples per second
+Now that I had a working "score" that I could analyse user interation with, I moved onto the next feature that my testers requested: plotting and showing a graph of the accelerometer data in the app.
 
-despite testing showing consistence, now time being recorded, kept that in as would probably be useful in the future to know the actual timestamp of actual recordings
+\subsection{Timing Issues}
+For the first version of my graphs, I simply plotted a rudimentary scatter-graph:
+within a given box on the screen, for each data-point $n$ in the accelerometer recording, I drew a small circle object $n$ pixels up, and spread the dots across so they stretched to fill the width of the box.
+
+Although this resulted in what looked like a line-chart with time as the x-axis, there were a few issues that arose when I took this version of the app to be tested;
+the graphs that were being displayed didn't quite ``look right".
+Although the x-axis of the graph was supposed to represent time, because I wasn't recording the time, but just successive data-points, this was not the case in real-life stress-testing that climbing involved.
+
+What I found out to be happening was that the way Unity handles incoming accelerometer data was to record it as fast as possible - which is exactly what a developer would want if they were using it as an input to a game.
+However, this caused the side-effect of the time-scale varying slightly, in a usually unnoticable manner.
+Back at my PC that evening, when I recorded a timestamp to the csv file alongside the accelerometer data, the time differences varied from 0.004s to 0.006s, due to the way my recording function was being called.
+Although this would obviously need to be fixed for the accuracy of the graphs, it didn't explain how the graphs when climbing would be so inaccurate.
+
+Taking this code back to the the climbing wall a few days later, I discovered that during some more dynamic climbing moves, the differences in recordings reached up to 0.5s.
+Upon closer inspection, I saw that when the phone was detecting a very large acceleration along with a large rotation, it would try to change the display orientation, resulting in a brief pause in the recording of the accelerometer.
+
+Therefore, to fix these issues, I forced the app to remain in portrait mode, and re-wrote the recording function caller to ensure that exactly 20 samples per second would always be recorded.
+
+Also, because I was now recording the timestamp at each recording point anyway, I edited the graph-drawing software to take the timestamp into account when drawing
+Despite fixing this consistency of timings, I also re-wrote the graph-drawing code to take into account the associated timestamp for each point.
+
+\subsection{Using Lines instead of dots}
+
+(is this section nessecary?)
+
+The dots graph had some gaps in, so testers asked why not use lines.
+
+(could describe the pair-wise datapoint trigonometry with a few diagrams, and screenshots to show improvements)
 
 
+\section{Viewing Previous Climbs}
+Up until this point, the statistics and graphs of each climb had been only visible directly after a climb had been completed, and to compare climbs the users had to memorise the previous climb's smoothness score and roughly how the graph looked, to then hope to improve.
 
-Issue with precision of ticks being saved and parsed, couldnt use list of vectors, had to define struct to allow long,float types
+Viewing a list of all the previous climbs, with associated smoothness scores and graphs, was the obvious (and much-requested) next feature to add.
 
-
-Dots had gaps - add lines - slow - remove dots ---  responsiveness research?
-caching discussion here or later?
-
-
-\subsection{scrollview}
-viewing previous climbs now possible on a different screen, by scrolling through a list of them all.
+Because of the way that I had been saving the accelerometer recordings to the phone's persistent memory for debug purposes, I could scrape that folder for all csv files, and populate a scrolling list with a set of graphs and smoothness scores.
+See figure <?>
 
 <insert screenshot of scrollview>
 
 \subsection{Viewing Individual Climbs}
-By viewing how my testers used this view, to compare previous climbs' graphs and smoothness scores, I also noticed that they would occasionally click on a climb in the scroll-view.
+By viewing how my testers used this scrolling view, to compare previous climbs' graphs and smoothness scores, I also noticed that they would occasionally click on a climb in the scroll-view.
 When asked about this action, they told me that they had instinctively clicked, with the expectation that they could load that specific climb and view more information on it.
 Therefore I added another page into the project, to view an individual climb's graph in full-screen detail, with more statistics like smoothness and time taken all on that screen.
 
@@ -296,15 +316,17 @@ Therefore I added another page into the project, to view an individual climb's g
 \subsubsection{Horizontal Scale}
 With the full-screen view of an individual climbing graph now possible, a discussion of scale was needed. 
 Wheras in the scroll-view of all the climbs, the graphs were scaled to fit the whole dataset inside the given box (again see Figure <?>), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
-After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarify whilst also not making the longer climbs to have an eccessively long scroll to view. 
-
+After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarify whilst also not making the longer climbs to have an excessively long scroll to view. 
+<insert screenshot>
 
 
 \section{Combining with Video}
-One tester suggested that as it was now possible to scroll horizontally through the graphs, using that scrollbar to also view frames of a connected video file could be a useful feature.
+One tester suggested that as it was now possible to scroll horizontally through a climb's graph, using that scrollbar to also view frames of a connected video file could be a useful feature.
 
 One option would be to use the phone to record a video, and get the accelerometer data from a wristband or other device.
 However, keeping in with the theme of accessibility and only using a mobile app, the idea of connecting two mobile phone devices, so a friend with the app could video-record you as you climbed with the accelerometer feature, was chosen.
+
+
 
 
 \subsection{Networking Options}
@@ -315,6 +337,7 @@ These options had varying levels of support through Assets on Unity's Asset stor
 Those that potentially did cost upwards of £50, which is not something I was willing to pay for a library of code that may not do what I needed.
 
 Thus I would have to code my own solution.
+
 
 \subsubsection{Unity's Built-in Networking}
 The only one of the above options that is provided in some way by Unity is the Networking libraries, at first this ease seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
@@ -365,7 +388,7 @@ Infinite loop caused by self-initialising cache being updated by loader, which t
 
 Many issues with video
 Selecting a frame it doesn’t like on the webstream, then also codec / size issue with local file?
-Limits to scaling on some videos = worst bug to replicate in thie system of time-matching and sending videos
+Limits to scaling on some videos = worst bug to replicate in this system of time-matching and sending videos
 
 Fixed the play before select frame by letting auto-play be switched off with hidden button under scrollbar, conveniently adds extra feature of letting video play by self, which was meaning to add
 
