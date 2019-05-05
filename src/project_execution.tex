@@ -221,7 +221,6 @@ Therefore I added another page into the project, to view an individual climb's g
 
 <screenshot>
 
-To keep down clutter, testers had previously requested the ability to delete old climbs, so now I had this individual page for each climb, it was easy to a button was added that would remove a climb from the device.
 
 
 \subsubsection{Horizontal Scale}
@@ -230,14 +229,8 @@ Wheras in the scroll-view of all the climbs, the graphs were scaled to fit the w
 After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarify whilst also not making the longer climbs to have an eccessively long scroll to view. 
 
 
-\subsection{Cropping}
-As can be seen in Figure <>, often when reaching the top of a climb, my testers would just jump off, and land on the floor.
-This obviously created quick a large spike on the accelerations graph, and had a resultantly large impact on the smoothness score.
-Thus a button was added to "crop" a climb's graph.
-The horizontal location of the scrollbar was detected, and after a confirmation from the user, any climbing recording data after that point would be removed.
 
-
-\section{Video Connection}
+\section{Combining with Video}
 One tester suggested that as it was now possible to scroll horizontally through the graphs, using that scrollbar to also view frames of a connected video file could be a useful feature.
 
 One option would be to use the phone to record a video, and get the accelerometer data from a wristband or other device.
@@ -253,7 +246,7 @@ Those that potentially did cost upwards of £50, which is not something I was wi
 
 Thus I would have to code my own solution.
 
-\subsubsection{Unity's built-in Networking}
+\subsubsection{Unity's Built-in Networking}
 The only one of the above options that is provided in some way by Unity is the Networking libraries, at first this ease seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
 However, the UNet library provided by Unity had just recently been deprecated, and the replacement networking service was under development at the time of writing this, so documentation was often unavailable or incorrect.
 
@@ -269,7 +262,7 @@ Maybe something to look into in the future, but not really within the scope of t
 Although this seems like a great technology, and could be ideal for this specific use case, the few docs<insert ref?> I could find online that detailed using Wifidirect with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
 
 
-\subsubsection{Bluetooth or NFC}
+\subsubsection{Bluetooth & NFC}
 An idealised use-case for the app that presented itself in wizard-of-oz testing was to just bump two mobile devices together, "pairing" them using NFC, and then using the longer-range Bluetooth to transfer a sync command and any video or data files.
 
 Unfortunately, this uncovered a large issue with using Unity as my tool of choice - no support or libraries for either Bluetooth or NFC. 
@@ -281,67 +274,28 @@ After spending a few days writing this code, it worked occasionally, but the int
 Both Android and IOS provide easy APIs for sharing files via social media or email, which is utilised by the free NativeShare Asset I downloaded from the Unity Asset Store <cite>.
 Using this library, the JSON representation of each climb could easily be shared between devices using a messaging app, which was enough of a solution to this problem to allow me to take it to the testers and determine whether a more streamlined solution was needed.
 
-During testing, climbers could record a climb, view it, and then jsut hit share to send that file to a friend, who could import that file and view it on their phone.
-Despite the time spent on unsuccessfully trying to get Bluetooth working with my plugin, by simply using this same button, my testers could use Bluetooth instead of the messaging app to send the climb files.
+During testing, climbers could record a climb, view it, and then hit the Share button to send that file to a friend, who could import that file and view it on their phone.
+Despite the time spent on unsuccessfully trying to get Bluetooth working with my plugin, by simply using this same button, my testers could use Bluetooth instead of the messaging app to send the climb files - a slightly more convoluted approach to simply bumping two phones together, but one that worked more reliably when Bluetooth stopped working, which it did occasionally on one of my test devices.
 
 
 
-14/3
+\subsection{Code Refactor}
 For file transfer, and adding more info to climbing stuff such as associating video, a more reliable way of saving and loading climb data files was needed.
 Also a general refactor from a codefile per screen to a seperate one for filehandling, data analytics, and graph rendering.
 Moved to using unity serialise object as json instead of defining my own csv and writing my own parsers - better for future
 
 
-
-
-Testing also said that putting phone in pocket annoying as records start of walking up to wall - added vibrating countdown timer
-
-
-Also lack of pockets - got a chalkbag to put phone in for tests
-dicussion of chalkbag failure
-
-
-
-Improved ui with answers to questions asked (what is recorded etc), and added cropping and deletion ability to climbview
-Struggled with bluetooth stuff, required java code with exposed methods to link to unity c#
-Used NativeShare asset which provides sharing on social media, turns out the bluetooth also works fine, job done, sharing works.
-Started on file loading, used pragmas to select between unity editor (for testing) and android, used a liniked java class for android.
-Added exception to filehandler to throw and display if file not unserialized correcetly
-
 Issue: Cache invalidation issues with importing. Intialising anc updating cache on file load or file save? Which is import, it both loads and saves.
 Infinite loop caused by self-initialising cache being updated by loader, which then causes the self-initialisation again. - selfinitialisaion checking for null, then reeiving full list, rather than asking for its list to be populated. Tied cache-updating to the saving of files instead of the loading of files.
 
-Loads of issues with trying to open a file browser in android but working fully in windows - looked into SimpleFileBrowser asset
 
 
 
-
-
-
-
-
-
-
-
-
-
-19/3
-Diss meeting
-Showed video scroller working
-Redpoint climb to get data for poster demo - lining up video footage to acc data is tough
-Set up timestamped-video filenames to help calculate offset
-
-
-20/3 poster day went well
-
-
-27/3
-Set up automatic-viewing of accelerometer data, as was requested as an expected feature.
-Also added variable back button as users expect to return to where they came from (ref?)
+\subsection{Video Player}
 
 Many issues with video
 Selecting a frame it doesn’t like on the webstream, then also codec / size issue with local file?
-Limits to scaling on some videos = worst fking bug to replicate in thie system of time-matching and sending videos
+Limits to scaling on some videos = worst bug to replicate in thie system of time-matching and sending videos
 
 Fixed the play before select frame by letting auto-play be switched off with hidden button under scrollbar, conveniently adds extra feature of letting video play by self, which was meaning to add
 
@@ -349,14 +303,11 @@ Go to frame still not working though on android
 Fixed by playing a frame of video after skipping to frame, less responsive but more reliable. <- DESISION ON RELIABLITIY
 
 
-V0.3 rc
-
-
-
 
 
 Ok so videos recorded on the phone, either using native camera or using the in-app recorder, have codec issues
 Somehow videos that are sent via whatsapp or telegram (and thus somehow transcoded) work fine, but obviously lose both the timestamped filename and creation metadata
+
 
 So therefore the nice automatic matching of video data, with automatic guessing of the timestamp stuff, will have to be binned.
 Instead an “add video” button on the view-climb page, with a manual “set video offset” thing, will have to happen.
@@ -366,11 +317,47 @@ Doesnt fix the non-playback issue though :(
 Turning off multithreaded rendering makes video playback much smoother, but results in the frame not jumping to the selected one as easily, or at all, on slower android devices.
 
 
+Added manual offset as the auto wasnt gonna work, not ideal but allows people to tweak it, can add auto as well if works in future
+
+
+
+
+
+
+
+
+\section{Testing-driven UI Improvements}
+Testing also said that putting phone in pocket annoying as records start of walking up to wall - added vibrating countdown timer
+
+
+Also lack of pockets - got a chalkbag to put phone in for tests
+dicussion of chalkbag failure
+
+
+Improved ui with answers to questions asked (what is recorded etc), and added cropping and deletion ability to climbview
+
+
 Added title editing and more analytics, as benig able to log grade and seeing more acceleration stuff was requested in survey
 
-Put on play store
 
-Added manual offset as the auto wasnt gonna work, not ideal but allows people to tweak it, can add auto as well if works in future
+\subsection{Cropping}
+As can be seen in Figure <>, often when reaching the top of a climb, my testers would just jump off, and land on the floor.
+This obviously created quick a large spike on the accelerations graph, and had a resultantly large impact on the smoothness score.
+Thus a button was added to "crop" a climb's graph.
+The horizontal location of the scrollbar was detected, and after a confirmation from the user, any climbing recording data after that point would be removed.
+
+
+To keep down clutter, testers had previously requested the ability to delete old climbs, so now I had this individual page for each climb, it was easy to a button was added that would remove a climb from the device.
+
+
+
+Loads of issues with trying to open a file browser in android but working fully in windows - looked into SimpleFileBrowser asset
+
+
+Set up automatic-viewing of accelerometer data, as was requested as an expected feature, later added button to view climb, with a simple view of smoothness after each climb - different testers preferred different things as they were using different aspects of the app
+
+Also added variable back button as users expect to return to where they came from (ref?)
+
 
 
 29/3
@@ -386,7 +373,12 @@ Added more text and clearer button names for testing, sent off link to various p
 
 
 
-2/4 
+\section{Google Play Store}
+
+
+
+
+\section{Final UI Improvements from Tests}
 Pete meeting, adding per-second smoothness to enable better linking to above numbers
 added coloured boxed on graphdrawer to show dynamic seconds
 remove autoredirect and added better page for after recording
