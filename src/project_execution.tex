@@ -188,19 +188,51 @@ When the potential of a "smoothness" score was brought up in discussions, they t
 \section{Development of Smoothness Score}
 Seeing a range of graphs on the spreadsheet software, where some were (1) consistently fluid with no big spikes, (2) mostly flat with a few large spikes,  and (3) some with a lot of small spikes, was very interesting. 
 See figure <<??>>
-After discussion with some climbing coaches, and talking through the BMC Fundamentals <CITE> they suggested that what they often tell clients to do is to climb the same easy climb repeatedly, aiming for as fluid and smooth a motion as possible. This is clearly visibly in the 1st
-Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important. This style of climb can be seen in graph 2 of figure <?>.
+
+
+After discussion with some climbing coaches, and talking through the BMC Fundamentals <CITE> they suggested that what they often tell clients to do is to climb the same easy climb repeatedly, aiming for as fluid and smooth a motion as possible.
+This is clearly visibly in the 1st
+
+
+Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important.
+This style of climb can be seen in graph 2 of figure <?>.
 What the coaches said they would (in general) judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient and often is the factor that prevents the successful summit of a harder climb,   
 
 However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
-Instead I opted to try and find some form of quantizable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet 
+Instead I opted to try and find some form of quantizable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet didn't have an absolute limit or goal, to keep the flexibility required between different climbs and different sensors.
 
+\subsection{Testing Four Alternatives}
+I decided to try out a range of different options, on real climbing data, to determine which score was the closest representation of climbing style.
+To aid with the gamification and comparison of climbs, the metric should be able to distinguish between different climbs; if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reward that by changing.
+
+\subsubsection{Mean}
+$$\frac{\sum n }{N}$$
+The simplest statistical measure was worth testing, maybe a large amount of high accelerations could result in a higher mean?
+
+\subsubsection{Variance}
+$$\frac{\sum (n - \bar{n} )^2 }{N-1}$$
+Again, a classical statistical metric taught in all basic stats courses, yet measuring how varied the accelerometer data-points are, and what the average deviation is, could lead us to a useful metric.
+
+\subsubsection{Average squared difference between each consecutive data-point}
+$$\frac{\sum (n_i - n_{i+1} )^2 }{N}$$
+Taking Variance a step further, and calculating the pairwise differences in the dataset could give a good measure of how "jumpy" the chart is.
+
+\subsubsection{Single-Lagged Auto-Correlation}
+$$
+\frac{\sum(n_{i} - \bar{n})(n_{i+k} - \bar{n})}
+      {\sum(n_{i} - \bar{n})^{2} }
+$$
+Slightly more convoluted, but my idea for this metric was that if each datapoint is closely correlated with its successive datapoint, then the overall line would have less jolts, but run in a more smoothly varying way.
+
+
+I had three test climbers climb three different routes, in either a deliberately static style, a deliberately dynamic style, and their usual style: a hybrid of the two.
+Using the data recorded from these climbs, I calculated each of the above metrics, visible in Table~\ref{tab:smoothnesses}
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-climb  &  climber & style & min & max & mean & var & var-diff & lag-auto \\ \hline
+climb  &  climber & style & min & max & mean & var & var-diff & lagged-autocorr \\ \hline
 purple v0 route & 1 & static  & 0.29 & 3.50 & 1.10 & 0.12 & 0.06 & 1617.90 \\ \hline
 purple v0 route & 3 & static  & 0.07 & 6.39 & 1.09 & 0.16 & 0.12 & 1600.46 \\ \hline
 purple v0 route & 2 & dynamic & 0.16 & 10.96 & 1.11 & 0.39 & 0.18 & 2150.63 \\ \hline
@@ -214,8 +246,19 @@ pink v2 route & 2 & dynamic & 0.16 & 10.32 & 1.12 & 0.25 & 0.15 & 1826.36 \\ \hl
 
 \end{tabular}
 \caption{Comparison of Smoothness Score Candidates}
-\label{tab:smooth}
+\label{tab:smoothnesses}
 \end{table}
+
+As can be seen, despite both the var-diff and the lagged-autocorr algorithms showing some promise, the only metric that can reliably distinguish between the three styles of climbing is the variance, so this is the score I took forward.
+
+
+\subsection{Confirmatory Testing of Variance}
+I therefore added a calculation at the end of the accelerometer-recording, which would display the variance to the user on the app screen, immediately upon completing a climb.
+
+Taking this back to the test-users, they agreed that this metric was much better for them being able to compete on a climb, both with themselves and with each other, to get "as static a climb as possible", meeting the requirements for this score.
+
+One point they did raise was that comparing a score of, for example, $0.21234$ and $0.17018$, felt odd.
+My testers found comparing and discussing numbers in the 20-100 range much easier and more natural, so on the next iteration of the app, before displaying the variance I multiplied it by a hundred and displayed it as an integer.
 
 
 \section{Graphing Acceleration Data}
