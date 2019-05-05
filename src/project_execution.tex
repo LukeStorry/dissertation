@@ -186,9 +186,31 @@ When the potential of a "smoothness" score was brought up in discussions, they t
 
 
 \section{Development of Smoothness Score}
+Seeing a range of graphs on the spreadsheet software, where some were (1) consistently fluid with no big spikes, (2) mostly flat with a few large spikes,  and (3) some with a lot of small spikes, was very interesting. 
+See figure <<??>>
+After discussion with some climbing coaches, and talking through the BMC Fundamentals <CITE> they suggested that what they often tell clients to do is to climb the same easy climb repeatedly, aiming for as fluid and smooth a motion as possible. This is clearly visibly in the 1st
+Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important. This style of climb can be seen in graph 2 of figre <?>.
+What the coaches said they would (in general) judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient and often is the factor that prevents the successful summit of a harder climb,   
+
+However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
+Instead I opted to try and find some form of quantizable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet 
 
 
+\begin{table}[t]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+                    & metric1   & metric2 & metric3   & metric 4    \\ \hline
+climb1 - static     & 0         & 0       & 0         & 0           \\ \hline
+climb1 - dynamic    & 0         & 0       & 0         & 0           \\ \hline
+climb2 - static     & 0         & 0       & 0         & 0           \\ \hline
+climb2 - normal     & 0         & 0       & 0         & 0           \\ \hline
+climb2 - static     & 0         & 0       & 0         & 0           \\ \hline
 
+\end{tabular}
+\caption{Comparison of Smoothness Score Candidates}
+\label{tab:smooth}
+\end{table}
 
 
 \section{Graphing Acceleration Data}
@@ -473,18 +495,3 @@ for( i = 0; i < n; i++ ) {
   t[ i ] = 0;
 }
 \end{lstlisting}
-
-This is an example sub-section;
-the following content is auto-generated dummy text.
-Notice the examples in Figure~\ref{fig}, Table~\ref{tab}, Algorithm~\ref{alg}
-and Listing~\ref{lst}.
-
-\subsubsection{Example Sub-sub-section}
-
-This is an example sub-sub-section;
-the following content is auto-generated dummy text.
-
-\paragraph{Example paragraph.}
-
-This is an example paragraph; note the trailing full-stop in the title,
-which is intended to ensure it does not run into the text.
