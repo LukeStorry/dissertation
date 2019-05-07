@@ -1,36 +1,11 @@
 \chapter{Project Execution}
 \label{chap:execution}
 
-A topic-specific chapter, of roughly $15$ pages
-This chapter is intended to describe what you did: the goal is to explain the main activity or activities, of any type, which constituted your work during the project.
-
-The content is highly topic-specific, but for many projects it will make sense to split the chapter into two sections:
- - one will discuss the design of something (e.g., some hardware or software, or an algorithm, or experiment), including any rationale or decisions made,
- - and the other will discuss how this design was realised via some form of implementation.
-
-This is, of course, far from ideal for {\em many} project topics.  Some
-situations which clearly require a different approach include:
-\begin{itemize}
-\item In a project where asymptotic analysis of some algorithm is the goal,
-      there is no real ``design and implementation'' in a traditional sense
-      even though the activity of analysis is clearly within the remit of
-      this chapter.
-\item In a project where analysis of some results is as major, or a more
-      major goal than the implementation that produced them, it might be
-      sensible to merge this chapter with the next one: the main activity
-      is such that discussion of the results cannot be viewed separately.
-\end{itemize}
-
-
-Note that it is common to include evidence of ``best practice'' project management (e.g., use of version control, choice of programming language and so on).
-Rather than simply a rote list, make sure any such content is useful and/or informative in some way: for example, if there was a decision to be made then explain the trade-offs and implications involved.
-
-
 
 \section{Introduction}
-The main activity of this project was the development of a mobile app that can usefully analyse climbers' technique and then provide them with various data whilst they trainig or climb for fun.
+The main activity of this project was the development of a mobile app that can usefully analyse intermediate climbers' technique and then provide them with various data whilst they training or climb for fun.
 
-\subsection{User-Centered Iterative Design}
+\subsection{User-Centred Iterative Design}
 aims
 
 iteration
@@ -46,13 +21,14 @@ I shared links to this survey across a variety of local climbing club pages, and
 It must be mentioned that approximately half of these responses came in after I had already started development of the app, so although they did not all contribute to my initial development, I regularly checked the survey results and took into account any new opinions that were presented.
 This is a benefit of an online survey, as I got a much broader reach, quantity and range of responses compared to if I had performed a more traditional paper survey at a climbing wall.
 
-\clearpage
+
 \subsection{Survey Respondents}
-\begin{wrapfigure}{r}{8cm}
-\includegraphics[width=7cm]{imgs/surveydemographics}
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{imgs/surveydemographics}
 \caption{Demographics of Respondents to the Initial Survey}
 \label{fig:surveydemographics}
-\end{wrapfigure}
+\end{figure}
 Some statistics on the demographics of the respondents can be seen in Figure~\ref{fig:surveydemographics}.
 
 The male-female gender split is fairly consistent with the general indoor climbing population: 65\% male respondents compared to the 64\% stated in Rapelje's study on the demographics of climbers~\cite{climbing-sub-worlds}, and 65\% aged 19-24, compared to 60\% in that study.
@@ -76,12 +52,12 @@ However, in later questions, an app (and thus a phone) was the most discussed po
 
 
 \subsubsection{Communication With Others Whilst Climbing}
-Because an potential use of the device was to aid some of the common interactions that climbers had with friends at the wall, two of the questions in this initial survey asked what kind of things people wanted to hear whilst climbing, and what they often told their friends.
+Because a potential use of the device was to aid some of the common interactions that climbers had with friends at the wall, two of the questions in this initial survey asked what kind of things people wanted to hear whilst climbing, and what they often told their friends.
 
 The most common response was "beta", which is a colloqial climbing term for advice on how body-positioning should be used to solve a tricky climb. 
 <insert a definition?>
 This can vary a lot between climbers, with each climb usually having two or more potential solutions.
-Also, being able to "read" a climb to determine this beta is a tough and much-sought-after skill within the climbing community, to the extent that it is often nearly impossible for the very best in the sport, and thus definitely out of reach of any artificial Intelligence I could hope to create within this project.
+Also, being able to "read" a climb to determine this beta is a tough and much-sought-after skill within the climbing community, to the extent that it is often nearly impossible for the very best in the sport, and thus definitely out of reach of any Artificial Intelligence (AI) I could hope to create within this project.
 An alternative, which was suggested by a few survey respondents, could have been to record (with either video or other sensors) a proficient climber climbing that route, and then showing that at a later date. 
 However, this data-collection and -replay contradicted my initial aim of the device/app being able to be used anywhere; I wouldn't want to have to go around every few months and re-record somebody climbing every climb at each climbing wall just for the product to remain usable.
 
@@ -92,24 +68,23 @@ This has an obvious potential use-case for a device, by using a colour video and
 
 \subsubsection{Requested Potential Features}
 Arguably the most useful question was the one asking
-\textit{"Are there any features you'd like to see in a training app or device?"}.
+\textit{``Are there any features you'd like to see in a training app or device?"}.
 This elicited a very wide range of suggestions, from yoga and meal plans to VR-viewing of someone climbing alongside.
-Many of these were either too simple (and could be achieved by googling), or far too ambitious in scope.
+Many of these were either too simple (and could be achieved either by existing apps, or an online search), or far too ambitious in scope.
 
 The most common request was a way to log climbs in some way, and although a few logging apps already exist, this feature was definitely required in some way alongside whichever novel features were to be developed.
-Tracking progression and seeing gradual improvements over time is a typical characteristic of training in any sport, but instead of simply listing climbs that had been done, a few respondents suggested that other metrics could be tracked, such as height climbed, frequent muscle groups used, and weak-points in technique that caused a climber to fall off at a certain point.
+Tracking progression and seeing gradual improvements over time is a typical characteristic of training in any sport, but instead of just listing climbs that had been done, a few respondents suggested that other metrics could be tracked, such as height climbed, frequent muscle groups used, and weak-points in technique that caused a climber to fall off at a certain point.
 
 
-Many respondents emphasised that ease-of use was very important, so they didn't waste time climbing by clicking through the app.
-"Large buttons for chalky fingers" were requested, alongside "a minimum of two clicks between opening the app and using it".
+Many respondents emphasised that ease-of use was very important, so they didn't waste time climbing by clicking through the app. ``Large buttons for chalky fingers" were requested, alongside ``a minimum of two clicks between opening the app and using it".
 
 The video-analysis of technique was mentioned by seven respondents, with a mixture of technique-tutoring, centre-of-gravity detection and limb-annotation suggested.
 Both centre-of-gravity and limb-annotation could be feasible achieved with computer-vision, so those were taken forward to the wizard-of-oz testing phase.
 However, if beta-detection has been ruled out as too difficult for CV/AI, then giving accurate technique advice is even further out of the range of potential features: with the high complexity of movements in the sport, years of learning required to achieve coaching qualifications, and the high risk of injury if incorrect, giving explicit advice about how to climb is not something that I wanted to go into with this project.
 
-One metric that was proposed is the analysis of efficiency or smoothness in a climb.
-A commonly accepted signifier of "good technique" is when a climber moves neatly and directly between each successive climb, without any jerky motions or unnecessary readjustments.
-A simple accelerometer recording could be used to determine this metric and thus this suggestion was also brought forward to the next stage of testing.
+One metric that was proposed is the analysis of efficiency or ``smoothness" in a climb.
+A commonly accepted signifier of ``good technique" is when a climber moves neatly and directly between each successive climb, without any jerky motions or unnecessary readjustments.
+An accelerometer recording could be used to determine this metric and thus this suggestion was also brought forward to the next stage of testing.
 
 
 
@@ -117,35 +92,37 @@ A simple accelerometer recording could be used to determine this metric and thus
 
 \subsection{Platform Choice}
 Despite researching a variety of different devices and form factors, one of the key aims of the project was always to make the final product as accessible as possible, therefore a OS-independent mobile app was decided upon after reviewing the survey results.
-By not using any extra equipment such as wristbands or 3d-cameras, the scope and ability of the final product could be limited - eg by lack of sensors and processing power - however limiting the need for anything but just a phone, which almost everyone owns, was a worthwhile sacrifice.
-As well as making user-testing much easier, this choice also helped narrow the down the direction of the project, as working solely within the limits of what a mobile app could achieve meant that the capabilities of that platform could be fully stretched and explored.
+By not using any extra equipment such as wristbands or 3d-cameras, the scope and ability of the final product could be limited - by lack of sensors and processing power - however limiting the need for anything but just a phone, which almost everyone owns, was a worthwhile sacrifice.
+As well as making user-testing much easier, this choice also helped narrow down the direction of the project: working solely within the limits of what a mobile app could achieve meant that the capabilities of that platform could be fully stretched and explored.
 
 The two inputs that mobiles can easily capture and that would potentially be most useful for the analysis of climbing technique were video recordings and accelerometer data.
-Video recordings can be analysed with various computer vision techniques, and accelerometer data can be shown on a graph and analysed statistically for various outputs.
+Video recordings can be analysed with various Computer Vision (CV) techniques and accelerometer data can be shown on a graph and analysed statistically to provide various outputs.
 
 
 \subsection{Tool Selection}
 \subsubsection{Development tool}
-Next was to find a app-development tool that is quick and easy to use (for quick repeated iterations of the app), can easily import or link to the OpenCV Library (for the computer vision aspect), and is platform-independant (so any mobile phone owners can use the app, irrespective of OS).
+Next was to find a app-development tool that is quick and easy to use (for quick repeated iterations of the app), can easily import or link to the OpenCV Library (for the CV aspect), and is platform-independent (so any mobile phone owners can use the app, irrespective of OS).
 
-Unity was chosen as it meets all three of those requirements, with a wide variety of Assets that can be imported.
+Unity was chosen as it meets all three of those requirements, with a wide variety of ``Assets" (downloadable open-source libraries) that can be imported.
 Also having used the tool for games development in the past I was very familiar with using Unity, and knew that iterating over app designs would be quick and easy enough, compared to potentially wasting time learning how to use other tools when this one met all the requirements with the added benefit of previous experience using the tool.
 
 \subsubsection{Version Control}
 For version-control I used \verb|git|, backed-up on GitHub.
-Being a one-person project I rarely bothered with the overhead of using different branches, but the ability to roll-back to working code and releases, and to \verb|stash| and \stash|pop| various files at different times was very useful during development.
+Being a one-person project I rarely bothered with the overhead of using different branches, but the ability to roll-back to working code and releases, and to \verb|stash| and \verb|pop| various files at different times was very useful during development.
 Once or twice a week, after a new feature or big set of fixes had been added, I would up-version the app, and release a compiled .apk binary to the project's GitHub page.
-This allowed the easy re-installing of older versions when trying to locating a bug, as well as a clear documentation of all fixes and features included at each minor version upgrade.
+This allowed the easy re-installing of older versions when trying to locate a bug, as well as a clear documentation of all fixes and features included at each minor version upgrade.
 
 
 \section{Initial Wizard-Of-Oz Study}
-The initial survey showed interest in using computer vision to either give feedback about climbing technique, or to point out where nearby handholds were.
+The initial survey showed interest in using CV to either give feedback about climbing technique, or to point out where nearby handholds were.
 To those ends, I began experimenting with using OpenCV to detect blobs in previous recordings of my own climbing.
 
-Although some small success was had in detecting the center of body mass, and some nearby coloured handholds, the wide variety of different lighting conditions and noise from the low-res camera made the detections very innaccurate.
-Another issue that came up was that the code would analyse the video very slowly, even on my PC with a graphics card, so converting that to battery-efficient code that could run in real-time on a mobile device would have been extremely difficult.
-
+% Note: should this be in another section?
+Although some small success was had in detecting the centre of body mass, and some nearby coloured handholds, the wide variety of different lighting conditions and noise from the low-res camera made the detections very inaccurate.
+Another issue that arose was that the code would analyse the video very slowly, even on my PC with a graphics card, so converting that to battery-efficient code that could run in real-time on a mobile device would have been extremely difficult.
 Due to the time-scope of this project, and the aims being to iteratively develop something and analyse how climbers interacted with such a product, I was wary of spending too much time trying to get video-detection working.
+
+
 To determine the requirement for this video feature vs using an accelerometer to provide data input, a series of informal discussions and wizard-of-oz tests were performed at a climbing wall with 3 boulderers.
 Knowing the probable abilities of the CV's video-analysis, which was either to label limbs and centre of mass on a video output, or to state nearby handholds during the climb, both features were determined to be potentially useful.
 However, the labelled video feature was stated to be only slightly better than just watching a video playback, and the inefficiency of setting up a phone to point at a wall to call out handholds with some delay was not something that excited the climbers.
@@ -156,24 +133,31 @@ Having an accelerometer data showing up on a graph with some form of "smoothness
 
 \subsection{Simple Recorder}
 After the success of the accelerometer idea at the wizard-of-oz stage, I decided to build a very simple app to use in some actual in-field studies.
-This first app just had a two buttons, START and STOP, which would, respectively, start and stop recording the mobile phone's raw accelerometer data into a \verb|.txt| file.
+This first app just had a two buttons, START and STOP, which would, respectively, start and stop recording the mobile phone's raw accelerometer data into a \verb|.csv| file.
 
 \subsubsection{Axes Selection}
-Because the accelerometer's API allowed me to collect data from each of the individual axes, it seemed like a good idea to use this to determine acceleration vertically vs horizontally, which could have been a potentially useful feature.
-However, after viewing the raw data output from the first climbing session, it became obvious that the phone's axes would very rarely match up with the real-world axis in any meaningful way, and even some sort of calibration at the start of the climb would quickly become meaningless as the climber rotates and moves up the wall, as can be seen in in Figure <<>>.
+The accelerometer's API allowed me to collect data from each of the individual axes, so it seemed like a good idea to use this to determine and compare acceleration vertically vs horizontally, which was a potentially useful feature.
+However, after viewing the raw data output from the first climbing session, it became clear that the phone's axes would very rarely match up with the real-world axis in any meaningful way, and even some sort of calibration at the start of the climb would quickly become meaningless as the climber rotates and moves up the wall, as can be seen in in Figure <<>>.
+
 <diagram/pic of phone axes whilst in climbers pocket>
+
 Therefore just the total magnitude of the vector-sum of the acceleration measured along all three axes was used going forward.
 
 \subsubsection{Mock Output}
-During this first test, the lack of an in-app output was a very obvious limitation, but after a climbing test session with just this feature, I was able to copy the data into a spreadsheet software and graph the results.
+During this first test, the lack of an in-app output was an obvious limitation, but after a climbing test session with just this feature, I was able to copy the data into a spreadsheet software and graph the results, giving Figure~\ref{fig:twoclimbsgraph}.
 
-<insert graph>
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{imgs/graph_two_climbs}
+\caption{Overlaid Graphs of the Accelerometer Data Recorded During Two Different Climbs}
+\label{fig:twoclimbsgraph}
+\end{figure}
 
 I then met up again with the climbers from that test-day at the wall, and we discussed the graphs and could recognise which climbers were climbing which climbs, just from the spikes on each line graph; this was the first time I saw a clear correlation between the acceleration and the climbing style and ability, an exciting result.
 
 
 \subsection{First In-App Statistics}
-Obviously a graph of the acceleration would be a good output, so I started work on that.
+The testers enjoyed viewing the graphs I had produced, so I started working on adding graphs to the app.
 Unfortunately here I hit the first limitation of the tool I was using - Unity.
 Primarily designed as a Games Engine, Unity didn't have an easy method of plotting graphs, and any Asset Store solutions were expensive to buy. 
 A solution involving drawing dots on the screen for every data point, and calculating the size and angles of lines connecting them was possible, but I knew that would take a few days of coding, and wanted to iron out any potential kinks in my data-collection methods before investing that much time into coding.
@@ -181,53 +165,67 @@ Also, I had another testing day scheduled with my climbers, so wanted to quickly
 Simply calculating the min and max acceleration, and the time taken to climb, only took a few lines of code, and so the second prototype of my app included a screen that would display those statistics after a climb.
 
 During the test session, both of the people I was climbing with enjoyed using their max acceleration in such a way that it seemed to gamify the climbs.
-They took it in turns trying to produce as much acceleration (or "power") as possible on some climbing moves, and also compared times whilst slowly doing easier climbs, trying to keep their max acceleration down to as low a score as possible, moving do a certain climbing move as much speed as possible.
+Gamification is the .... <cite> 
+competitive aspect
+%%%%%%%%% Add more description about gamification %%%%%%%%%%%
+
+They took it in turns trying to produce as much acceleration, or "power", as possible on some climbing moves, and also compared times whilst slowly doing easier climbs, trying to keep their max acceleration down to as low a score as possible, and doing certain climbing moves with as much or as little speed as possible.
 When the potential of a "smoothness" score was brought up in discussions, they told me that a statistic other than just max acceleration, and more closely linked to actual climbing technique, would be very useful.
 
 
 \section{Development of Smoothness Score}
-Seeing a range of graphs on the spreadsheet software, where some were (1) consistently fluid with no big spikes, (2) mostly flat with a few large spikes,  and (3) some with a lot of small spikes, was very interesting. 
-See figure <<??>>
-
+Seeing a range of graphs on the spreadsheet software (similar to Figure~\ref{fig:twoclimbsgraph} but with many more climbs) was very interesting.
+Some climbs' graphs were consistently fluid with no big spikes, some were mostly flat with a few large spikes, and some had a lot of small spikes, which clearly showed that there were discernible differences between the accelerometer data produced by different climbs, something I intended to utilise.
 
 After discussion with some climbing coaches, and talking through the BMC Fundamentals <CITE> they suggested that what they often tell clients to do is to climb the same easy climb repeatedly, aiming for as fluid and smooth a motion as possible.
-This is clearly visibly in the 1st
 
 
-Alongside this, occasionally some harder climbs call for bigger "dynamic" moves, but accuracy in catching the holds without lots of small adjustments is important.
-This style of climb can be seen in graph 2 of figure <?>.
-What the coaches said they would (in general) judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient and often is the factor that prevents the successful summit of a harder climb,   
+% Add new figure here for this discussion
+% NOTE -  maybe re-do the climbing graphs to show three good examples? 
+%This is clearly visibly in the 1st
+
+
+Alongside this, occasionally some harder climbs call for bigger ``dynamic" moves, but accuracy in catching the holds without lots of small adjustments is still important for good technique.
+% This style of climb can be seen in graph 2 of figure <?>.
+
+
+What the coaches I spoke to said they would generally judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient.
+The aim of good climbing technique is to prevent this early tiring, and reduce as much inefficiency in movement as possible, as these are often the factors that prevents the successful summit of a harder climb. <CITE>
 
 However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
-Instead I opted to try and find some form of quantizable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet didn't have an absolute limit or goal, to keep the flexibility required between different climbs and different sensors.
+Instead I opted to try and find some form of quantifiable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet didn't have an absolute limit or goal, to keep the flexibility required between different climbs and different sensors.
 
-\subsection{Testing Four Alternatives}
-I decided to try out a range of different options, on real climbing data, to determine which score was the closest representation of climbing style.
-To aid with the gamification and comparison of climbs, the metric should be able to distinguish between different climbs; if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reward that by changing.
+\subsection{Four Alternatives}
+No prior research has been done into a metric such as this.
+Although many studies <cite> cover the measurement of the smoothness of a line, finding a measurement that could utilise this smoothness to distinguish between climbing styles has not previously been attempted.
+
+I decided to test out a range of different options, on real climbing data, to determine which score was the closest representation of climbing style.
+To aid with the gamification and comparison of climbs, the metric should be able to distinguish between different climbs; if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reflect that by changing in a predictable manner.
+
 
 \subsubsection{Mean}
 $$\frac{\sum n }{N}$$
-The simplest statistical measure was worth testing, maybe a large amount of high accelerations could result in a higher mean?
+The simplest statistical measure was worth testing: a large amount of higher accelerations would result in a higher mean, which would possibly show differences in climbing style.
 
 \subsubsection{Variance}
 $$\frac{\sum (n - \bar{n} )^2 }{N-1}$$
-Again, a classical statistical metric taught in all basic stats courses, yet measuring how varied the accelerometer data-points are, and what the average deviation is, could lead us to a useful metric.
+Again, a classical statistical metric that had potential: measuring how varied the accelerometer data-points are is linked to the above discussion on how more ``spiky" graphs often portray less smooth climbs.
 
 \subsubsection{Average squared difference between each consecutive data-point}
 $$\frac{\sum (n_i - n_{i+1} )^2 }{N}$$
-Taking Variance a step further, and calculating the pairwise differences in the dataset could give a good measure of how "jumpy" the chart is.
-By measuring the differences in acceleration, this statistic works in much the same way as finding the average squared "jerk", ie the derivative of the acceleration.
+Taking variance a step further, and calculating the pairwise differences in the dataset could give a good measure of how ``jumpy" the chart is.
+By measuring the differences in acceleration, this statistic works in much the same way as finding the average squared ``jerk", which is the derivative of the acceleration.
 
 \subsubsection{Single-Lagged Auto-Correlation}
 $$
 \frac{\sum(n_{i} - \bar{n})(n_{i+k} - \bar{n})}
       {\sum(n_{i} - \bar{n})^{2} }
 $$
-Slightly more convoluted, but my idea for this metric was that if each data-point is closely correlated with its successive data-point, then the overall line would have less jolts, but run in a more smoothly varying way.
+My idea for using this metric was that if each data-point is closely correlated with its successive data-point, then the overall line would have less jolts, but run in a more smoothly varying way.
 
-
-I had three test climbers climb three different routes, in either a deliberately static style, a deliberately dynamic style, and their usual style: a hybrid of the two.
-Using the data recorded from these climbs, I calculated each of the above metrics, visible in Table~\ref{tab:smoothnesses}
+\subsection {Testing}
+I had three test climbers climb three different routes, in either a deliberately static style, a deliberately dynamic style, or their usual style: a hybrid of the two.
+Using the data recorded from these climbs, I calculated each of the above metrics, visible in Table~\ref{tab:smoothnesses}.
 
 \begin{table}[h]
 \centering
@@ -254,7 +252,7 @@ As can be seen, despite both the var-diff and the lagged-autocorr algorithms sho
 
 
 \subsection{Confirmatory Testing of Variance}
-I therefore added a calculation at the end of the accelerometer-recording, which would display the variance to the user on the app screen, immediately upon completing a climb.
+In the app, I added a calculation at the end of the accelerometer-recording, which would display the variance to the user on the app screen immediately upon completing a climb.
 
 Taking this back to the test-users, they agreed that this metric was much better for them being able to compete on a climb, both with themselves and with each other, to get "as static a climb as possible", meeting the requirements for this score.
 
@@ -271,19 +269,17 @@ within a given box on the screen, for each data-point $n$ in the accelerometer r
 
 Although this resulted in what looked like a line-chart with time as the x-axis, there were a few issues that arose when I took this version of the app to be tested;
 the graphs that were being displayed didn't quite ``look right".
-Although the x-axis of the graph was supposed to represent time, because I wasn't recording the time, but just successive data-points, this was not the case in real-life stress-testing that climbing involved.
+Although the x-axis of the graph was supposed to represent time, because I wasn't recording the actual time but just successive data-points, the x-axis didn't truly represent time in the real-life stress-testing that climbing involved.
 
 What I found out to be happening was that the way Unity handles incoming accelerometer data was to record it as fast as possible - which is exactly what a developer would want if they were using it as an input to a game.
-However, this caused the side-effect of the time-scale varying slightly, in a usually unnoticable manner.
-Back at my PC that evening, when I recorded a timestamp to the csv file alongside the accelerometer data, the time differences varied from 0.004s to 0.006s, due to the way my recording function was being called.
-Although this would obviously need to be fixed for the accuracy of the graphs, it didn't explain how the graphs when climbing would be so inaccurate.
+However, this caused the side-effect of the time-scale varying slightly, in a usually unnoticeable manner.
+During at-home debugging, when I recorded a timestamp to the csv file alongside the accelerometer data, the time differences only varied from 0.004s to 0.006s, and although this would obviously need to be fixed for the accuracy of the graphs, it didn't explain how the graphs when climbing would be so inaccurate.
 
 Taking this code back to the the climbing wall a few days later, I discovered that during some more dynamic climbing moves, the differences in recordings reached up to 0.5s.
 Upon closer inspection, I saw that when the phone was detecting a very large acceleration along with a large rotation, it would try to change the display orientation, resulting in a brief pause in the recording of the accelerometer.
 
 Therefore, to fix these issues, I forced the app to remain in portrait mode, and re-wrote the recording function caller to ensure that exactly 20 samples per second would always be recorded.
 
-Also, because I was now recording the timestamp at each recording point anyway, I edited the graph-drawing software to take the timestamp into account when drawing
 Despite fixing this consistency of timings, I also re-wrote the graph-drawing code to take into account the associated timestamp for each point.
 
 \subsection{Using Lines instead of dots}
@@ -306,7 +302,7 @@ See figure <?>
 <insert screenshot of scrollview>
 
 \subsection{Viewing Individual Climbs}
-By viewing how my testers used this scrolling view, to compare previous climbs' graphs and smoothness scores, I also noticed that they would occasionally click on a climb in the scroll-view.
+By viewing how my testers used this scrolling view, to compare previous climbs' graphs and smoothness scores, I also noticed that they would occasionally touch a climb's graph with a finger.
 When asked about this action, they told me that they had instinctively clicked, with the expectation that they could load that specific climb and view more information on it.
 Therefore I added another page into the project, to view an individual climb's graph in full-screen detail, with more statistics like smoothness and time taken all on that screen.
 
@@ -317,7 +313,7 @@ Therefore I added another page into the project, to view an individual climb's g
 \subsubsection{Horizontal Scale}
 With the full-screen view of an individual climbing graph now possible, a discussion of scale was needed. 
 Wheras in the scroll-view of all the climbs, the graphs were scaled to fit the whole dataset inside the given box (again see Figure <?>), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
-After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarify whilst also not making the longer climbs to have an excessively long scroll to view. 
+After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarity whilst also not making the longer climbs to have an excessively long scroll to view. 
 <insert screenshot>
 
 
@@ -335,29 +331,32 @@ A variety of different options for networking two phones together was explored, 
 
 
 These options had varying levels of support through Assets on Unity's Asset store, but after looking through reviews most of them were deprecated, broken, or did not fit my needs.
-Those that potentially did cost upwards of £50, which is not something I was willing to pay for a library of code that may not do what I needed.
+Those that potentially did cost upwards of \pounds50, which is not something I was willing to pay for a library of code that may not do what I needed.
 
-Thus I would have to code my own solution.
+Thus, I would have to code my own solution.
 
 
 \subsubsection{Unity's Built-in Networking}
-The only one of the above options that is provided in some way by Unity is the Networking libraries, at first this ease seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
+The only one of the above options that is provided in some way by Unity is the Networking libraries.
+At first its probable ease of use seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
 However, the UNet library provided by Unity had just recently been deprecated, and the replacement networking service was under development at the time of writing this, so documentation was often unavailable or incorrect.
 
 Also, despite the ability to link two phones whilst I was at home, when at the climbing walls this presented an issue as the free WIFI provided at these wall often blocked LAN connections between devices.
 
 \subsubsection{Cloud}
-Uploading to cloud would require coding some sort of scalable server and storage, something I could definitely do, but this level of overhead for what should just be the sharing of files and syncing between two devices that are located physically very close together felt like an unnessecary amount of work and time spent, as well as potentially very slow to upload and download video over the web every time if a more physical solution was possible.
-The requirement to add some sort of user profiles, or unique code to differentiate and request the correct download, was a big added complexity, yet one that could have given an added bonus of users' data being backed up to the web and usable in other ways, ie from a web platform.
-Maybe something to look into in the future, but not really within the scope of this project, a cloud server isn't the solution to this specific problem.
+Uploading to cloud would require coding some sort of scalable server and storage, something I could definitely do, but this level of overhead for what should just be the sharing of files and syncing between two devices that are located physically very close together felt like an unnecessary amount of work and time spent.
+Also, it would have been very slow to upload and download a video over the web for every climb, whereas a solution that could utilise the close physical locations of the devices to transfer files faster.
+
+The requirement to add some sort of user profiles, or unique code to differentiate and request the correct download, was a big added complexity, yet one that could have given an added bonus of users' data being backed up to the web and usable in other ways, for example from a web platform.
+Although this may be something to look into in the future a cloud server isn't the solution to this specific problem, and is not really within the scope of this project.
 
 \subsubsection{Wifi-Direct}
 <insert definiton>
-Although this seems like a great technology, and could be ideal for this specific use case, the few docs<insert ref?> I could find online that detailed using Wifidirect with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
+Although this seems like a great technology, and could be ideal for this specific use case, the few docs<insert ref?> I could find online that detailed using Wifi-Direct with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
 
 
 \subsubsection{Bluetooth & NFC}
-An idealised use-case for the app that presented itself in wizard-of-oz testing was to just bump two mobile devices together, "pairing" them using NFC, and then using the longer-range Bluetooth to transfer a sync command and any video or data files.
+An idealised use-case for the app that presented itself in wizard-of-oz testing was to just bump two mobile devices together, ``pairing" them using NFC, and then using the longer-range Bluetooth to transfer a sync command and any video or data files.
 
 Unfortunately, this uncovered a large issue with using Unity as my tool of choice - no support or libraries for either Bluetooth or NFC. 
 Even the single free Asset online was broken, leaving me with one solution: to write my own \verb|Java| plugin using Android Studio to connect the NFC and handle Bluetooth file transfers, then expose public functions in a compiled \verb|.jar| file that the \verb|C#| Unity code could then connect to.
@@ -373,93 +372,103 @@ Despite the time spent on unsuccessfully trying to get Bluetooth working with my
 
 
 
-\subsection{Code Refactor}
-For file transfer, and adding more info to climbing stuff such as associating video, a more reliable way of saving and loading climb data files was needed.
-Also a general refactor from a codefile per screen to a seperate one for filehandling, data analytics, and graph rendering.
-Moved to using unity serialise object as json instead of defining my own csv and writing my own parsers - better for future
-
-
-Issue: Cache invalidation issues with importing. Intialising anc updating cache on file load or file save? Which is import, it both loads and saves.
-Infinite loop caused by self-initialising cache being updated by loader, which then causes the self-initialisation again. - selfinitialisaion checking for null, then reeiving full list, rather than asking for its list to be populated. Tied cache-updating to the saving of files instead of the loading of files.
-
-
-
-
 \subsection{Video Player}
+Now that there was a way of sharing climb-data-files, it was time to add the video-scrolling feature.
 
-Many issues with video
-Selecting a frame it doesn’t like on the webstream, then also codec / size issue with local file?
-Limits to scaling on some videos = worst bug to replicate in this system of time-matching and sending videos
+By changing the climbing graph view to shrink down to half the page, and adding one of unity's VideoPlayer components in the top half of the screen, the video could play.
+Then, to set the frame of the video to display, the graph's scrollbar's position could be queried, and translated into a frame-number, which was set on the player.
 
-Fixed the play before select frame by letting auto-play be switched off with hidden button under scrollbar, conveniently adds extra feature of letting video play by self, which was meaning to add
+Everything seemed to work great, and the testers really enjoyed it:
+I would record them climbing with their phone in their pocket, then send them the video via messenger, they would download and attach it, and then could view and scroll through the video frame-by-frame to see which spikes in the graphs corresponded to which moves.
 
-Go to frame still not working though on android
-Fixed by playing a frame of video after skipping to frame, less responsive but more reliable. <- DESISION ON RELIABLITIY
+\subsubsection{Timing Issues}
+However, the two recordings (video and accelerometer) would have to be started at precisely the same time in order for the timings to match up.
+There was, at first, some potential in scraping the video-file's metadata for a timestamp, and matching that timestamp with the times in the recording; unfortunately when the videos are sent via the various messaging apps we were using, they would be transcode the video - to save data whilst sending, I assume - which would strip all useful metadata and timestamps.
+
+Therefore, instead of automatically time-matching a list of recorded videos with a list of climbs, a video file would have to be manually selected and added to a climb to associate the two - an unwanted but necessary extra step for reliability.
+Also, a manual ``Video Offset" selector was added above the video-player, so users could adjust the time-differential between the graph and video so that they could scroll in time if the automatic metadata-scraping and timing-detection failed to predict the correct time difference upon manual matching.
+To aid this automated system, any video recordings made via the app would save the exact timestamp (to millisecond-precision) into the video's filename, which is not always changed when these messaging services transcode the video.
+
+\subsubsection{Video Player Bugs}
+Through this testing of a variety of video-sending methods, I discovered a bug:
+on some devices, some videos, in some orientations, with some video-formats, would cause the video player to fail.
+This is one of the toughest bugs I have ever had to fix, as it was very nearly un-reproducable: If I changed any one of the four requirements above, the bug would disappear, and if I changed the scaling settings in the \verb|VideoPlayer| component then a different combination of the settings would cause it to fail instead.
+
+Most often, the use-case that produced this bug was when a video recorded on a phone was matched with an externally-imported climb-file.
+Unfortunately, that was a very common use-case for my testers.
+Whether the video was recorded through the in-app video recorder, or the phone's native camera app, it would usually fail.
+If that video was sent via a messaging app, then re-downloaded off that app, it would work.
+If that video was rotated and then rotated back again, it would work.
+
+This was frustrating, as surely if a video was recorded on a device, and playable by that device, Unity should have access to the codecs required to correctly play that video?
+In total, around two week's worth of development time was spent just trying to figure out how to play video reliably, as it would be very frustrating for the testers when they'd get down off a climb expecting to analyse the graphs and visualise the climb frame-by-frame, only for a flashing screen to greet them.
+
+Eventually I completely changed how the videos were being played in Unity to solve this issue: instead of using a simple VideoPlayer component, I attached a second camera to the VideoPlayer API, and then scaled and rendered that camera's view onto a mesh in the view.
+This more convoluted way of displaying video wasn't as smooth to playback the video, and delayed when searching for a specific frame, especially on older devices, but the decision was that a flickering video feed was better than an unreliable one.
+
+
+
+% Turning off multithreaded rendering makes video playback much smoother, but results in the frame not jumping to the selected one as easily, or at all, on slower android devices.
 
 
 
 
-Ok so videos recorded on the phone, either using native camera or using the in-app recorder, have codec issues
-Somehow videos that are sent via whatsapp or telegram (and thus somehow transcoded) work fine, but obviously lose both the timestamped filename and creation metadata
+\section{Code Refactor}
+Because I was starting to send climbing files between devices, I needed a more reliable way of exporting and parsing those files, especially with the added complexity of having video-paths and other information attached to them, the plain csv files were not sufficient.
+Also, having gradually built up the app with a script file per-view, for example one script to handle the recording and another to handle the viewing, as I added more features and file information, the code-base was getting convoluted.
+
+<< should I add diagrams of the different class heirarchies? >>
+
+\subsubsection{Refactor}
+Therefore, I completely refactored all the code, keeping the only the minimum logic required for each view in those files, and splitting out all file-handling and graph-drawing methods into seperate classes, along with creating a new \verb|ClimbInfo| dataclass to store the accelerometer data, title and associated video information.
+
+Now that all the data associated with a climb was contained in a single class, I could utilise Unity's built-in \verb|Serialization|, which could automatically convert a correctly setup class directly into a json file, and visa-versa. 
+This was complex to achieve, but it proved very useful later on when adding more information to my ClimbData class: I no longer had to maintain my own file-saving and file-parsing code, but could rely on the serialisation to work with the files.
 
 
-So therefore the nice automatic matching of video data, with automatic guessing of the timestamp stuff, will have to be binned.
-Instead an “add video” button on the view-climb page, with a manual “set video offset” thing, will have to happen.
-Can’t think of a better way of matching up the recording, plus this will allow simply timing/syncing stuff in real life and then jus sending via whatever platform
-Doesnt fix the non-playback issue though :(
+\subsubsection{Caching}
+This refactor also gave me the chance to fix some performance issues that some of my testers had been having after using the app for multiple sessions.
+As the number of climbs increased, so did the time it took to populate the list of climbs, as each file had to be loaded, and each graph drawn, before that page of the app could load.
+Caching a list of \verb|ClimbData| objects prevented this repeated file-loading, but caused some issues with cache invalidation:
+\begin{itemize}
+    \item When loading the app for the first time, all of the climb-files in persistent storage should be read and cached.
+    \item When a new climb is recorded, it should be saved to persistent storage and also cached.
+    \item When an external climb-file is imported, it is first loaded into memory, then should be saved both to persistent storage.
+    \item When a climb file is edited, it should be overwritten in persistent storage, but is already cached so should not be re-added to prevent duplicates.
+\end{itemize}
+This all took a lot of working out to cover all edge-cases, but the eventual solution involved tightly coupling cache-updatinging with the action of saving to disk, and decoupling it from any loading functions, checking for duplicates before adding to the cache, and adding an auto-initialisation feature to the cache:
+If the cache is empty when queried, it will contact the \verb|FileHandler| and populate itself with a list of \verb|ClimbData| objects corresponding to what is in persistent storage.
 
-Turning off multithreaded rendering makes video playback much smoother, but results in the frame not jumping to the selected one as easily, or at all, on slower android devices.
 
-
-Added manual offset as the auto wasnt gonna work, not ideal but allows people to tweak it, can add auto as well if works in future
-
-
-
+% Infinite loop caused by self-initialising cache being updated by loader, which then causes the self-initialisation again. - selfinitialisaion checking for null, then reeiving full list, rather than asking for its list to be populated. Tied cache-updating to the saving of files instead of the loading of files.
 
 
 
 
 
 \section{Testing-driven UI Improvements}
-Testing also said that putting phone in pocket annoying as records start of walking up to wall - added vibrating countdown timer
+Alongside this set of larger features being developed, my twice- or thrice-weekly testing sessions were also provoking a range of smaller UI tweaks.
+
+\subsubsection{Countdown}
+One of the earliest of these was that starting recording as soon as the START button was pressed would record the acceleration caused by the climber putting their phone in their pocket and walking up to the wall.
+To prevent this, a five-second countdown timer was introduced before recording commences, accompanied by a vibration so that the climber could have time to set up and know when to begin climbing.
+
+\subsubsection{Guides}
+Also, a lot of questions were asked when climbers first started using the app, so alongside a guide and FAQ on the website, I added clearer button names and brief descriptions at the bottom of each page to describe what happens with each feature.
 
 
-Also lack of pockets - got a chalkbag to put phone in for tests
-dicussion of chalkbag failure
-
-
-Improved ui with answers to questions asked (what is recorded etc), and added cropping and deletion ability to climbview
-
-
-Added title editing and more analytics, as benig able to log grade and seeing more acceleration stuff was requested in survey
-
-
-\subsection{Cropping}
-As can be seen in Figure <>, often when reaching the top of a climb, my testers would just jump off, and land on the floor.
+\subsubsection{Cropping}
+As can be seen in Figure <screenshot>, sometimes when reaching the top of a climb, testers would just jump off, and land on the floor.
 This obviously created quick a large spike on the accelerations graph, and had a resultantly large impact on the smoothness score.
 Thus a button was added to "crop" a climb's graph.
 The horizontal location of the scrollbar was detected, and after a confirmation from the user, any climbing recording data after that point would be removed.
 
-
-To keep down clutter, testers had previously requested the ability to delete old climbs, so now I had this individual page for each climb, it was easy to a button was added that would remove a climb from the device.
-
-
-
-% Loads of issues with trying to open a file browser in android but the importer is working fully in windows - looked into SimpleFileBrowser asset
+\subsubsection{Deleting}
+To keep down clutter, testers had previously requested the ability to delete old or mis-recorded climbs, so now that each climb had its own page, a button was added that would remove the currently-open climb from the device.
 
 
-Also added variable back button as users expect to return to where they came from (ref?)
-
-
-
-Re-enabled video recorder as testers thought everything in-app would be good (also can do instant video analysis-editing pre-share)
-
-Instant share button for dual-device usage
-Also testers said theyd expect to see it in gallery, and not lose the video straight after share/back button press, so used NativeGallery addon to save to gallery.
-
- Video playing works for landscape all along, no idea why portrait on ARM devices fails?
-Readded simple offset calculation using parsed video name for cases whree file is recorded locally
-Added more text and clearer button names for remote testing where i am not present
+\subsection{Back Button}
+For Android, I removed the in-app back button, instead using the native OS's API to detect when the phone's back button had been pressed and returning the user to the previous screen, integrating the users' usage more closely to what they are used to from other apps.
 
 
 
@@ -473,7 +482,7 @@ As this fast initial pace of development slowed down, and I wanted to give a mor
 
 To ensure that the general public did not have access to this app, but only participants who had consented to be a part of this study, I did not release a full production version of the app, but used Google's Limited Beta Rollout feature to only provide beta access to the testers that I had given links to.
 
-This Play Store listing can be seen \href{here}{https://play.google.com/store/apps/details?id=com.lukestorry.augKlimb}, with a screenshot in figure~\ref{fig:playstore}.
+This Play Store listing can be seen \href{https://play.google.com/store/apps/details?id=com.lukestorry.augKlimb}{here}, with a screenshot in Figure~\ref{fig:playstore}.
 
 \begin{figure}{h}
 \centering
@@ -483,23 +492,30 @@ This Play Store listing can be seen \href{here}{https://play.google.com/store/ap
 \end{figure}
 
 Having the app on the Play Store not only made it a lot easier to upgrade the app on everyone's phones before each testing session, but the added legitimacy provided by not having to side-load the apk meant that a wider variety of people felt comfortable installing the app from a provided link.
-This caused my amount of testers who were regularly using and testing the app to increase from 4 to 15, providing a rich variety of feedback from regular users of all abilities, both through occasional conversations and through the feedback form I had linked to the homepage of the app.
+This caused the amount of testers who were regularly using and testing the app to increase from 4 to 15, providing a rich variety of feedback from regular users of all abilities, both through occasional conversations and through the feedback form I had linked to the homepage of the app.
 
 
 
 
 \section{Final UI Improvements from Tests}
-Having more testers, each using the app slightly differently, on an assortment of different devices highlighted a range of small bugs that were either non-existent or at least infrequent on my own devices.
-Non-reproducability of some of the bugs made for some tough fixing, but 
+Having more testers, each using the app slightly differently, led to a wide range of feedback, advice, and suggested improvements.
+Also, the testing being on an assortment of different devices highlighted a range of small bugs that were either non-existent or at least infrequent on my own devices.
+Few of these are worth mentioning, usually just requiring corrections to button-placement or changing the configuration of the file browser.
+One bug caused a permissions error on Nexus devices, but after a week of helping that user manually re-enable the correct permissions, Unity released an update that fixed what turned out to be a but in their engine.
+
+\subsubsection{Title Editing}
+Until this point, the title of a climb had just been the date and time that it was recorded.
+In the initial survey, a climb-logging app was requested, and so to meet that demand I added the ability to edit this title to name the climb's grade, colour, and location.
+
+Some testers didn't use this feature as they weren't interested in creating a list of climbs, just analysing the specific one they were working on at the time, but for others this added a nice way to be able to scroll back through climbs from a previous session and easily find one to replicate or compare to.
 
 
-Moved to using native gallery for video file browsing
-Testers having issues with the permissions stuff when installed off playstore
-Updated unity, permission blank screen fixed and videos all working
+\subsubsection{Video Recorder}
+Despite previously having moved away from recording videos within the app, and instead just using the phone's normal camera app, some testers suggested that it would feel more integrated to have all of the recording features within the app.
+To this end, I updated the in-app camera feature to automatically save videos both to their phone's external camera-roll and to the app's persistent storage.
 
 
-
-\subsection{Colour-Grading the Graphs}
+\subsubsection{Colour-Grading the Graphs}
 One of the most common user-flows that I observed during the testing was repeatedly climbing the same climb to try and get the lowest smoothness-score possible, then during a rest-break, scrolling through and reviewing the graph for each climb, to see which moves caused the largest spikes, and thus how they can climb in a different way to reduce the score further.
 
 To make a more coherent link between the overall smoothness-score and the graphs, I implemented the suggestion of calculating the per-second smoothness-score and including those on the graphs.
@@ -513,12 +529,7 @@ Users could now quickly scroll through the graph to the darkest section, and see
 
 
 
-Pete meeting, adding per-second smoothness to enable better linking to above numbers
-added coloured boxed on graphdrawer to show dynamic seconds
-
-
-
-\subsection{Conflicting Requests From Users}
+\subsubsection{Conflicting Requests From Users}
 Due to the variety of use-cases the app can provide, a frequent side-effect of streamlining one user-flow was that other users would feed back that their preferred usage of the app had been hindered.
 
 The biggest example of this was was which view to show the user upon completion of an accelerometer recording.
@@ -535,85 +546,3 @@ A compromise was formed, where the initial recording page showed nothing but the
 
 <screenshots>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Example Section}
-
-This is an example section;
-the following content is auto-generated dummy text.
-
-\subsection{Example Sub-section}
-
-\begin{figure}[t]
-\centering
-foo
-\caption{This is an example figure.}
-\label{fig}
-\end{figure}
-
-\begin{table}[t]
-\centering
-\begin{tabular}{|cc|c|}
-\hline
-foo      & bar      & baz      \\
-\hline
-$0     $ & $0     $ & $0     $ \\
-$1     $ & $1     $ & $1     $ \\
-$\vdots$ & $\vdots$ & $\vdots$ \\
-$9     $ & $9     $ & $9     $ \\
-\hline
-\end{tabular}
-\caption{This is an example table.}
-\label{tab}
-\end{table}
-
-\begin{algorithm}[t]
-\For{$i=0$ {\bf upto} $n$}{
-  $t_i \leftarrow 0$\;
-}
-\caption{This is an example algorithm.}
-\label{alg}
-\end{algorithm}
-
-\begin{lstlisting}[float={t},caption={This is an example listing.},label={lst},language=C]
-for( i = 0; i < n; i++ ) {
-  t[ i ] = 0;
-}
-\end{lstlisting}
