@@ -20,12 +20,12 @@ Also, because there are some related climbing-orientated technologies already on
 \section{Previous Sports-Data-Augmentation Studies}
 \subsection{Impact of Feedback on Sport Progression}
 The impact of appropriate feedback on motor skill acquisition has been widely studied in the field of psycho-kinesiology~\cite{schmidt75aschema, schmidt2005motor}.
-One of the earliest reviews of the impact that more modern computer-based feedback could have on athlete's performance is Liebermann et al's 2002 \textit{``Advances in the application of information technology
+One of the earliest reviews of the impact that more modern computer-based feedback could have on athlete's performance is Liebermann et al's \textit{``Advances in the application of information technology
 to sport performance"}~\cite{lieberreview}, which discusses how video-based review systems, eye-tracking technology, and force-plates could all be used by coaches to provide an athlete with ``sophisticated and objective" feedback during a training session, leading to ``effective and efficient learning" across a wide variety of sports.
 
 Although one of the aims of the project was to not require a coach, the clearly-defined link between high-quality feedback and learning speed that was presented by those two papers was promising, especially paired with the many studies contained within that review that showed the efficacy of computer-aided feedback systems.
 
-In a 2006 study~\cite{bacafeedback}, Baca \& Kornfeind examined the use of advanced computerised ``Rapid Feedback Systems" in elite training for rowing, table-tennis and biathalon, resulting in a set of considerations and guidelines for when designing such a system.
+In a their study~\cite{bacafeedback}, Baca \& Kornfeind examined the use of advanced computerised ``Rapid Feedback Systems" in elite training for rowing, table-tennis and biathalon, resulting in a set of considerations and guidelines for when designing such a system.
 Among others, these included:
 \begin{itemize}
     \item minimising the impact that the measurement system has on the athlete
@@ -42,14 +42,15 @@ With the development of more advanced computer-aided systems, it became possible
 
 As Computer-Vision (CV) has become more sophisticated, the automation of some these video-annotations has become more accurate and prevalent~\cite{cvinsport}, but currently seems limited to semi-accurate player-location-detection, and fairly-inaccurate pose detection, which are very useful for overall analytics in some sports~\cite{pansiottenniscv}, but not for specific technique recommendations in others.
 
-Some systems, using multiple cameras along with reflective VICON markers placed on the body, can accurately detect movement, leading to successful automation of technique-coaching~\cite{automaticrowingcoach}
-
+\subsubsection{Marker-Based Motion Detetion}
+Some systems, using multiple cameras along with reflective VICON markers placed on the body, can accurately detect movement.
+This has lead to successful automation of technique-coaching in rowing~\cite{automaticrowingcoach}, yet probably has limited funcitonality for the average climber due to excessive setup and equipment costs.
 
 \subsection{Wearables}
 If a single acceleration-recording wearable device can capture data that is rich enough to distinguish between levels of ability and technique, that was a very useful potential feature in the early idea-development of my project.
-In Ohgi's 2002 paper~\cite{oghiswim}, he showed that by attaching a small tubular device to a swimmer's wrist, and graphing the tri-axial time-series acceleration data that was recorded, it was possible to determine the full path of the arm-stroke, and distinguish between a stroke with good technique, and a later, more fatigued stroke with worse technique.
+In Ohgi's paper~\cite{oghiswim}, he showed that by attaching a small tubular device to a swimmer's wrist, and graphing the tri-axial time-series acceleration data that was recorded, it was possible to determine the full path of the arm-stroke, and distinguish between a stroke with good technique, and a later, more fatigued stroke with worse technique.
 
-Building on this, in his 2009 review paper~\cite{callawayvideoacccomp} Callaway showed that for some sports, such as swimming, having multiple wearables on an athlete's body, providing accelerometer and gyroscopic measurements, can provide much better data and analytic feedback than the traditional video techniques.
+Building on this, in his review paper~\cite{callawayvideoacccomp} Callaway showed that for some sports, such as swimming, having multiple wearables on an athlete's body, providing accelerometer and gyroscopic measurements, can provide much better data and analytic feedback than the traditional video techniques.
 Instead of giving an overall impression of technique, measuring the angles, accelerations and velocities of various body-parts at different phases of swimming-stroke could result in technique-adjustment recommendations, although in that paper it was noted that the relative infantcy of the measurement technologies available at the time caused some accuracy issues that meant these recommendations were not precise enough for real usage.
 
 \subsubsection{Mobiles}
@@ -62,6 +63,9 @@ often very specialist hardware can be used, as the recreational sportsperson is 
 
 
 \section{Climbing-related Research}
+Although climbing has not seen as much research interest as many other sports, there have been some studies, looking into both data-collection of athletes and a couple beginning to explore the interaction of climbers with devices and software.
+
+
 \subsection{Data-Collection}
 
 \subsubsection{Computer Vision}
@@ -77,16 +81,20 @@ ClimbBSN~\cite{climbbsn} uses a specially-designed ear-worn  sensor to record tr
 This was used to show that the data collected from the sensors correlates strongly with the grade at which the climber was proficient at climbing, and could therefore be used to track progression in the future.
 
 
-ClimbAX, developed in 2013, \cite{climbaxstudy} is a similar system that uses wearables on all four limbs over a series of climbing sessions, to accurately assess performance, leading to successful predictions of results in a later competition.
-The study presents itself as the first step towards an enthusiast-orientated coaching system, and in the six years since a startup of the same name have been working on building that, but with no product near market yet.
+ClimbAX \cite{climbaxstudy} is a similar system that uses wearable acceleronmeter-recording bands on all four limbs, over a series of climbing sessions.
+Data from many climbers across many climbs was analysed, leading to the training of a set of classifiers that could accurately assess performance, across a range of classifiers such as stability, speed, control and power.
+This lead  to successful predictions of results in a later climbing competition.
+The study presented itself as the first step towards an ``enthusiast-orientated coaching system", and currently a startup company of the same name have been working on building that into a cloud analysis platform, but with no product released to market yet.
+It shows the potential of an accelerometer-based automatic analysis system, something that I decided to lay as an option in later wizard-of-oz studies.
 
 
 \subsection{Climbing-HCI Research}
 Various aspects of adding computer-interaction to climbing have been studied in recent years.
 
 \subsubsection{Visualisation}
-A prototype visualisation platform for the above ClimbAX system was developed, analysed and evaluated by Niederer et al~\cite{niederervis}
+A prototype visualisation platform for the above ClimbAX system was developed, analysed and evaluated by Niederer et al~\cite{niederervis}.
 Their logbook-style interactive web-app, which implemented and displayed the analyses developed in the ClimbAX study in a clean interface, alongside graphs of performance over time, was well-received in their usability study and reviews.
+Taking from this that usability and simplicity are key, alongside the participant's positive review of graphed accelerometer data, I nevertheless wanted to perform my user-centred iterative design from a relatively clean, slate, and not allow these findings to impact my surveys and discussions with the testers I was working with.
 
 \subsubsection{Projectors}
 Kajastila et all developed a system that uses an array of projectors and laser-sensors to illuminate a climbing wall~\cite{projectedclimbwall}.

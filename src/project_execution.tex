@@ -40,7 +40,7 @@ Because this project aimed to build a product that most closely matches the need
 process"~\cite{ISO9241-210}.
 In order to do this, I met and discussed with the users throughout every stage of the Iterative Design process detailed above, not just the Testing Phase.
 
-Therefore, within and alongside the larger iterations, minor iterative loops took place, where users were consulted repeatedly, their test-responses evaluated and suggested changes implemented, during the implemenation of each major feature.
+Therefore, within and alongside the larger iterations, minor iterative loops took place, where users were consulted repeatedly, their test-responses evaluated and suggested changes implemented, during the implementation of each major feature.
 
 
 
@@ -89,7 +89,7 @@ However, in later questions, an app (and thus a phone) was the most discussed po
 \subsubsection{Communication With Others Whilst Climbing}
 Because a potential use of the device was to aid some of the common interactions that climbers had with friends at the wall, two of the questions in this initial survey asked what kind of things people wanted to hear whilst climbing, and what they often told their friends.
 
-The most common response was ``beta", which is a colloqial climbing term for advice on how body-positioning should be used to solve a tricky climb. 
+The most common response was ``beta", which is a colloquial climbing term for advice on how body-positioning should be used to solve a tricky climb. 
 This can vary a lot between climbers, with each climb usually having two or more potential solutions.
 Also, being able to ``read" a climb to determine this beta is a tough and much-sought-after skill within the climbing community, to the extent that it is often nearly impossible for the very best in the sport, and thus definitely out of reach of any Artificial Intelligence (AI) I could hope to create within this project.
 An alternative, which was suggested by a few survey respondents, could have been to record (with either video or other sensors) a proficient climber climbing that route, and then showing that at a later date. 
@@ -350,7 +350,7 @@ Therefore I added another page into the project, to view an individual climb's g
 
 \subsubsection{Horizontal Scale}
 With the full-screen view of an individual climbing graph now possible, a discussion of scale was needed. 
-Wheras in the scroll-view of all the climbs, the graphs were scaled to fit the whole dataset inside the given box (again see Figure <TODO>), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
+Whereas in the scroll-view of all the climbs, the graphs were scaled to fit the whole dataset inside the given box (again see Figure <TODO>), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
 After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarity whilst also not making the longer climbs to have an excessively long scroll to view. 
 <TODO insert screenshot>
 
@@ -380,7 +380,7 @@ Thus, I would have to code my own solution.
 
 \subsubsection{Unity's Built-in Networking}
 The only one of the above options that is provided in some way by Unity is the Networking libraries.
-At first its probable ease of use seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to conenct various devices together.
+At first its probable ease of use seemed like a good option, and despite having some issues using it in the past (during my third-year Games Project)I knew how to connect various devices together.
 However, the UNet library provided by Unity had just recently been deprecated, and the replacement networking service was under development at the time of writing this, so documentation was often unavailable or incorrect.
 
 Also, despite the ability to link two phones whilst I was at home, when at the climbing walls this presented an issue as the free WIFI provided at these wall often blocked LAN connections between devices.
@@ -397,7 +397,7 @@ Although this may be something to look into in the future a cloud server isn't t
 Although this seems like a great technology, and could be ideal for this specific use case, the few docs<TODOinsert ref?> I could find online that detailed using Wifi-Direct with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
 
 
-\subsubsection{Bluetooth & NFC}
+\subsubsection{Bluetooth \& NFC}
 An idealised use-case for the app that presented itself in WOZ testing was to just bump two mobile devices together, ``pairing" them using NFC, and then using the longer-range Bluetooth to transfer a sync command and any video or data files.
 
 Unfortunately, this uncovered a large issue with using Unity as my tool of choice - no support or libraries for either Bluetooth or NFC. 
@@ -433,7 +433,7 @@ To aid this automated system, any video recordings made via the app would save t
 \subsubsection{Video Player Bugs}
 Through this testing of a variety of video-sending methods, I discovered a bug:
 on some devices, some videos, in some orientations, with some video-formats, would cause the video player to fail.
-This is one of the toughest bugs I have ever had to fix, as it was very nearly un-reproducable: If I changed any one of the four requirements above, the bug would disappear, and if I changed the scaling settings in the \verb|VideoPlayer| component then a different combination of the settings would cause it to fail instead.
+This is one of the toughest bugs I have ever had to fix, as it was very nearly un-reproducible: If I changed any one of the four requirements above, the bug would disappear, and if I changed the scaling settings in the \verb|VideoPlayer| component then a different combination of the settings would cause it to fail instead.
 
 Most often, the use-case that produced this bug was when a video recorded on a phone was matched with an externally-imported climb-file.
 Unfortunately, that was a very common use-case for my testers.
@@ -452,7 +452,7 @@ This more convoluted way of displaying video wasn't as smooth to playback the vi
 % Turning off multithreaded rendering makes video playback much smoother, but results in the frame not jumping to the selected one as easily, or at all, on slower android devices.
 
 \subsection{Testing}
-The testing phase of this major iteration was successful: users enjoyed viewing the video footage alongside the graphs, and made a few other suggestions for Ui improvements for the next stage too, but the app was nearly ready for deployment.
+The testing phase of this major iteration was successful: users enjoyed viewing the video footage alongside the graphs, and made a few other suggestions for UI improvements for the next stage too, but the app was nearly ready for deployment.
 
 
 
@@ -461,14 +461,14 @@ The testing phase of this major iteration was successful: users enjoyed viewing 
 Now that the app was relatively stable and the two big features (acceleration and video) were working well together, it was time to clean the code with a refactor, implement the list of small requests that my testers had been suggesting, and then deploy the app, publishing it on the Play Store.
 
 \subsection{Code Refactor}
-Because I was starting to send climbing files between devices, I needed a more reliable way of exporting and parsing those files, especially with the added complexity of having video-paths and other information attached to them, the plain csv files were not sufficient.
+Because I was starting to send climbing files between devices, I needed a more reliable way of exporting and parsing those files, especially with the added complexity of having video-paths and other information attached to them, the plain \verb|csv| files were not sufficient.
 Also, having gradually built up the app with a script file per-view, for example one script to handle the recording and another to handle the viewing, as I added more features and file information, the code-base was getting convoluted.
 
 
 \subsubsection{Refactor}
-Therefore, I completely refactored all the code, keeping the only the minimum logic required for each view in those files, and splitting out all file-handling and graph-drawing methods into seperate classes, along with creating a new \verb|ClimbInfo| dataclass to store the accelerometer data, title and associated video information.
+Therefore, I completely refactored all the code, keeping the only the minimum logic required for each view in those files, and splitting out all file-handling and graph-drawing methods into separate classes, along with creating a new \verb|ClimbInfo| dataclass to store the accelerometer data, title and associated video information.
 
-Now that all the data associated with a climb was contained in a single class, I could utilise Unity's built-in \verb|Serialization|, which could automatically convert a correctly setup class directly into a json file, and visa-versa. 
+Now that all the data associated with a climb was contained in a single class, I could utilise Unity's built-in \verb|Serialization|, which could automatically convert a correctly setup class directly into a \verb|json| file, and visa-versa. 
 This was complex to achieve, but it proved very useful later on when adding more information to my ClimbData class: I no longer had to maintain my own file-saving and file-parsing code, but could rely on the serialisation to work with the files.
 
 
@@ -482,7 +482,7 @@ Caching a list of \verb|ClimbData| objects prevented this repeated file-loading,
     \item When an external climb-file is imported, it is first loaded into memory, then should be saved both to persistent storage.
     \item When a climb file is edited, it should be overwritten in persistent storage, but is already cached so should not be re-added to prevent duplicates.
 \end{itemize}
-This all took a lot of working out to cover all edge-cases, but the eventual solution involved tightly coupling cache-updatinging with the action of saving to disk, and decoupling it from any loading functions, checking for duplicates before adding to the cache, and adding an auto-initialisation feature to the cache:
+This all took a lot of working out to cover all edge-cases, but the eventual solution involved tightly coupling cache-updating with the action of saving to disk, and decoupling it from any loading functions, checking for duplicates before adding to the cache, and adding an auto-initialisation feature to the cache:
 If the cache is empty when queried, it will contact the \verb|FileHandler| and populate itself with a list of \verb|ClimbData| objects corresponding to what is in persistent storage.
 
 
@@ -516,7 +516,7 @@ For Android, I removed the in-app back button, instead using the native OS's API
 
 
 \subsection{Publishing to Google Play}
-As I don't have either a Mac or an iPhone, despite my choices to use a platform-independant software tool, I was only able to build to Android throughout this project.
+As I don't have either a Mac or an iPhone, despite my choices to use a platform-independent software tool, I was only able to build to Android throughout this project.
 That meant that the natural distribution service to use was Google Play.
 
 Publishing to that store required a developer account, images of the app in use, various review procedures, and for me to write both a code of conduct and a privacy policy.

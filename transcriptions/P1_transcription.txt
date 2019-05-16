@@ -1,0 +1,40 @@
+LS:  Interview with Participant One. Hello!
+\\P1:  Hi
+\\LS:  So, what do your climbing sessions normally include?
+\\P1:  Um, my climbing sessions usually involve about half an hour of warming up, stretching and doing some easier climbs, then maybe another couple of hours of bouldering, like trying to do new routes and going over some of the ones that I didn't do quite right last time. And then obviously some stretching at the end - very important.
+\\LS:  Would you class your sessions as fun, training, or a mixture of the two?
+\\P1:  I would say it's mostly for fun but obviously I want to get better, I want to keep improving
+\\LS:  How do you think using the app impacted your training session today?
+\\P1:  Using the app made me do the same climb more than once, and improve on the climb each time that I did it, trying to get rid of some of the unnecessary dynamic moves
+\\LS:  Which feature helped with that in particular?
+\\P1:  The accelerometer, and also the video, like watching and seeing which moves were maybe too big so I could work on them.
+\\LS:  Ok, cool, which would you say was your favourite aspect or feature of the app?
+\\P1:  I would say that the video, being able to see and watch what impact it had on your...
+\\LS:  Oh, so the interplay between the video and the accelerometer data?
+\\P1:  Yeah, exactly!
+\\LS:  So how does the video feedback on the app compared to just having video playback by itself, without the app? More or less useful?
+\\P1:  Just video, I think, would be less useful, because, watching yourself back. If you've just done the climb and you don't know which bits were more or less dynamic, you could watch it back and think that you'd done really well, whereas really you could have been doing a lot better.
+\\LS:  So you mean like, scrolling through the graph to see the colour coding and the peaks, and then where that links up with the video-d moves?
+\\P1:  Yeah I liked that a lot.
+\\LS:  So what would you say was your least favourite aspect of the app?
+\\P1:  I didn't really know how to link or send the video stuff between phones, it seemed quite complicated.
+\\LS:  Yeah it can be a bit of faff to get the Bluetooth working...
+\\P1:  <laughs>
+\\LS:  Are you likely to continue using the app in the future?
+\\P1:  Yeah, if you could help show me how to do that transferring of files stuff again
+\\LS:  <laugh> Yeah I'll add some more detailed guides on the website and the app I guess.
+\\P1:  are there any reasons you wouldn't bother using the app in the future?
+\\P1:  Um, if I was just doing fun climbing I probably would use the app again, but if I wanted to focus on getting better then I would use it yeah
+\\LS:  So do you think that the app helped improve your climbing?
+\\P1:  Yeah, I think so, having to do the same climb more than once to improve the score meant that you were climbing better, with more focus on technique.
+\\LS:  Would you say that you see the app as a training tool or more as a game, seeing a score of the climbs?
+\\P1:  I would say its more of a training tool, but then I hadn't really considered treating it like a game to try and get a better score 
+\\LS:  OK, I guess Im asking like how much does the app add fun to your climbs, as in is it an analytics tool to you, or is it a fun-making exercise to use the app?
+\\P1:  I'd go with the first one, that it's an analytics tool to see my climbs
+\\LS:  Ok, so which feature would you like to see added or extended in the future?
+\\P1:  I don't really know.
+\\LS:  If you had to come up with an improvement, what would you say?
+\\P1:  Maybe making the video more easy to connect in?
+\\LS:  Yeah fair point haha. Any other comments youd like to make?
+\\P1:  I don't think so. Sick job!
+\\LS:  <laugh> cheers

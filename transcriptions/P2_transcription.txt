@@ -1,0 +1,41 @@
+LS:  Alright, interview with participant number two. First question, what do you climbing sessions normally involve?
+\\P2:  It involves warming up at the beginning with easier climbs, and then working up towards harder climbs, and then after that probably a little bit of a workout, like pullups, then a cool down yeah
+\\LS:  so would you class that normal session as fun or more as a training session?
+\\P2:  Something in between. but more on the training side
+\\LS:  How do you think using the app has impacted your session today?
+\\P2:  I feel like it can provide good feedback on performance...
+\\LS:  ok yeah, go on
+\\P2:  and like basically a figure to compare daily  sessions against each other, perhaps
+\\LS:  so would it be interesting to come back next time and compare to see how the numbers are for doing the same climbs?
+\\P2:  yeah exactly
+\\LS:  So do you see those number as a training thing then?
+\\P2:  yeah, for me, yeah. So, for instance, if I try something and I am not able to do it today, then next time I come and I do it, then the session after that, I can come and do it, and compare the two times I've managed to do those climbs. 
+\\LS:  What in particular would you be comparing in that case?
+\\P2:  The smoothness score mostly
+\\LS:  So what would you say your favourite feature of the app was?
+\\P2:  Yeah that smoothness score was what I used the most
+\\LS:  How did you find the video feature?
+\\P2:  It was really good actually, yeah. It was to combine the two, seeing the movements with the video and so you can actually see the accelerations of all of them and see when they happened
+\\LS:  The interaction between the two?
+\\P2:  yeah
+\\LS:  Do you see the app overall as a fun, almost gamification of the climbing, or a training tool to set goals or targets?
+\\P2:  I wouldn't use it to set targets, but I would use it more as a figure for performance. Not a target I want to achieve for smoothness, but more as a figure, you know, as a figure to compare my climbing daily, what my smoothness is.
+\\LS:  What was your least favourite aspect of the app?
+\\P2:  The fact that at the end of the climbing I had to delete the spike from the jumping, that cropping before seeing the score.
+\\LS:  Yeah, OK, would that be your main suggestion for improvement?
+\\P2:  Yeah I think we can do some improvement, but I think when you link the video with the acceleration data, then you can see when stuff is happening, which is much easier, but it you just look at the graph data by itself then it can be a bit difficult to see what is happening. I would also say that if someone is using it regularly, then maybe it could have an armband, or like an footband or something, so the location be stationary, so you can compare sessions with each other. Whereas if it's in your pocket then the location it can just wobble around and can be different each time.
+\\LS:  Yeah a wristband could be a good way of using it, like one of those ones runners have?
+\\P2:  Yeah just for consistency of where it is located on your body.
+\\LS:  Sure yeah, good point. Are you likely to continue to use the app in the future after this study, for your own climbing.
+\\P2:  I would say yes, but I would also say that if I wanted to use it then it should be easier to use. Like at the moment it felt like there were too many buttons that I had to press, and every time, take it out of my pocket and do it. Maybe like an easier interface or something. I mean, it is pretty easy to use, with just the two buttons, but...
+\\LS:  Is it that cutting off of the jump down that you don't like?
+\\P2:  Yes.
+\\LS:  So like if you could just press stop and straight away see the smoothness?
+\\P2:  Yeah, maybe if it was on an armband , so I didn't have to look at the screen, I could just press the buttons, and feel vibrations when it records start and stop.
+\\LS:  Nice, yeah. Then if you don't want to be looking at a screen, what output would you want? 
+\\P2:  Yeah maybe, I like the smoothness, but like I said, maybe not right then. If I'm comparing it over two days then afterwards I can just bring up those two specific routes and have a look a them on the phone.
+\\LS:  Yeah, fair.
+\\P2:  So yes basically if I am doing a route for an instance, it has another button I can press and it goes into favourites, and at the end of the session I can name it maybe. And then next time I come, I can go like, ok this is the one, I am trying to do it again, and can compare them with each other.
+\\LS:  Cool, yeah, nice idea! Any further comments?
+\\P2:  Nah, good work man!
+\\LS:  Thanks!
