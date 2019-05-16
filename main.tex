@@ -8,14 +8,14 @@
                 
 \usepackage{pdfpages}
 
-\setcounter{tocdepth}{2}
+% \setcounter{tocdepth}{2}
 
 \begin{document}
 
-% \maketitle
+\maketitle
 
 \frontmatter
-% \makedecl
+\makedecl
 \tableofcontents
 % \listoffigures
 % \listoftables
@@ -23,16 +23,16 @@
 % \lstlistoflistings
 
 \include{src/executive_summary}
-% \include{src/supporting_technologies}
+\include{src/supporting_technologies}
 % \include{src/notation}
 % \include{src/acknowledgements}
 
 \mainmatter
-% \include{src/contextual_background}
-% \include{src/technical_background}
+\include{src/contextual_background}
+\include{src/technical_background}
 \include{src/project_execution}
-% \include{src/critical_evaluation}
-% \include{src/conclusion}
+\include{src/critical_evaluation}
+\include{src/conclusion}
 
 
 \backmatter
