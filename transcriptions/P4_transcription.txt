@@ -1,0 +1,63 @@
+LS: Interview with participant number four. Hello!
+\\P4: hello!
+\\LS: What do your climbing sessions usually involve?
+\\P4: Um, a warmup, very important, a few kind of easier climbs that I know I can do fairly well, and then start to build up from there. I Usually go in too quick, haha, and go for some difficult ones, but try and keep it easy to start with. And then play around at the top end of my ability, falling off a lot, that sort of thing.
+\\LS: Would you class your normal session as training, as fun, or a bit of both ... where on that scale?
+\\P4: Well.. it's definitely all for fun, but i suppose the more you train the more fun it gets, so when I'm there it feels like training, but obviously for fun in the end. I do try to go more regularly to get better and better. So I'm more towards the training than some, I might say.
+\\LS: How has the app impacted your session
+\\P4: Often I don't really think about what I'm doing, I just keep making the same mistakes, and not sure why, so anything that can help break down the climb a bit, even if it's just recording it, like video recording. But then the stats as well, on top of that, are really valuable, just to make me stop and think about what I'm doing more.
+\\LS: So do you use video-recording normally then?
+\\P4: Yeah, I haven't done it a lot, but it is really helpful to get someone to sit there with a camera, but there isn't always someone there.
+\\LS: So that screen with both the video recording and the accelerometer graph, how was that compared to just seeing a video?
+\\P4: Yeah I liked that, I think that yeah the data on its own, I end up mostly just looking at the smoothness in general, but it's hard to work out at which points you were doing those big dynamic moves, but with the video as well, you can see a move that should be very slow and comfortable, if you're getting a big reading from that, then you can work out that that might be contributing to your tiredness.
+\\LS: Ok, cool. So what was your favourite aspect of the app in general?
+\\P4: I do like the smoothness scores, it is a very easy thing to look at, once you know you can do a climb, you do it a few times and try to lower that score as much as possible, it is a very easy way to use the app.
+But then the video analysis, if you have someone to record it, that's the most... feature-full bit.
+\\LS: Yeah, so its the mixture of both of those, you have those two different ways of using the app almost.
+\\P4: Yeah exactly, if you're on your own, if I'm just out for a session, and I just want a quick bit of stats, and maybe I know that roughly halfway I was getting some bad results, I;d know roughly where I was going wrong, but if I wanted a full analysis then the video as well would be nice.
+\\LS: Nice. So what was your least favourite aspect of using the app then?
+\\P4: Maybe just like at the start, I wasn't sure what I was able to get from it, I wasn't entirely sure what I should be looking for or doing.
+\\LS: Yeah, so more of an FAQ or some examples of how to use it, on an intro page or something?
+\\P4: Yeah so maybe a breakdown of what you should be looking for in the stats. I worked out that the smoothness was quite important, but maybe some more detail in the instructions there.
+\\LS: I guess that's a downside of me wanting to see how the people testing it would interpret use the numbers, so I didn't want to give exact instructions in case that influenced things...
+\\P4: Yeah, and also I've not been climbing for very long, so don't know the best practices are when it comes to good technique.
+\\LS: So having the app give some advice and rough guidelines for the numbers almost?
+\\P4: Yeah, some people might ignore the advice anyway, but it depends on the level of the climber, personally I want some advice to go with my scores, saying like "this is a bit high", "try to minimise this" and so on
+\\LS: Are you likely to continue using the app in the future
+\\P4: Yeah definitely!
+\\LS: Sound haha! What kind of improvements would you like to see?
+\\P4: I need to figure out the best place to put the phone I think...
+\\LS: Yeah, because you had it in an arm-band for a while didn't you?
+\\P4: Yeah, and I definitely think that has got its uses, like putting it on difficult limbs, to see if you're working harder on each hand for instance, doing the same climb with it on each arm and seeing which is smoother.
+\\LS: That's quite interesting actually!
+\\P4: I didn't hand pockets today, I'll wear pockets next time, I wanna see what results it gives when I've got it attached to my torso.
+\\LS: Yeah, pockets give quite a good approximation for core movement.
+\\P4: Yeah i think it would be less jolty. I definitely want to use the app a few more times to see what kind of data I can get out of it.
+\\LS: Nice. Do you see the app as a training tool, or as a gamification tool?
+\\P4: Probably a training tool yeah...
+\\LS: Haha yeah I guessed that from this conversation we just had
+\\P4: Its good when you've got a lot of people around trying to do the same climb, seeing who can do it the smoothest, I can see how that could be a good game. Today definitely felt more like training though
+\\LS: Yeah, everyone uses the app in a different way, which is kind of why I didn't want to put too much advice on there yet. \\ Do you think the app caused of helped improve your climbing?
+\\P4: Yeah I definitely think that, especially with like rope-climbing or something where it's less powerful and more endurance, I feel I'd get the most use from it there, as I'd be able to use it on climbs where I feel comfortable that I can get most of the way up, but then I'm getting very tired towards the top, it might be helpful to break down how smooth I'm climbing and how much energy I'm able to save using different techniques
+\\LS: So you say those efficiency savings from smooth technique would be more useful in longer rope-climbing routes?
+\\P4: Yeah, its definitely important in bouldering, but you can fall off, have a break and try again, whereas the roped climbs you get more tired on
+\\LS: In bouldering then, which kind of climbs did you mostly use the app with?
+\\P4: Quite often, at the start of a session, when I'm warming up, I'll be looking at my technique, trying to do things slowly and smoothly, like that's when I'd really be looking at the app, then I'll try to remember those smooth movements when I move onto the harder climbs, but sometimes on the really hard ones you are just looking for any way you can get to the top
+\\LS: haha, my sessions are very much the same ha
+\\P4: Yeah so in the warmup stage, its a good chance to practise being smooth and having good technique, the app is good for that.
+\\LS: Are there any features you'd like to see extended or added.
+\\P4: I think it would be great to have external sensors, but I know that would be a massive task ha, connecting to multiple devices isn't easy..
+\\LS: Yeah ha
+\\P4: But the more data you can get, the better
+\\LS: Cool, thanks, any other comments?
+\\P4: Can't think of any
+\\LS: Thank you very much for the interview
+
+
+
+
+
+
+
+
+
