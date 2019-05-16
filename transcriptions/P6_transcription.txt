@@ -1,0 +1,29 @@
+LS:  Interview with participant number 6. hello.
+\\P6: hello
+\\LS:  so 1st question, what do your climbing sessions usually involve?
+\\P6: So I'm trying to improve quite a lot at the moment, improve my upper body strength, really pushing myself, trying to do parts of harder climbs even if I can't do the entire climb.
+\\LS:  So would you class your session as fun or training, or mixture?
+\\P6: A mixture, and depending on how I'm feeling, and depending on how many times I'm climbing in a week, I might do two training sessions and one fun session. Also depending on the people I'm with, if I'm with beginners, I might have more fun doing easier routes with them, but if I'm with people who are better than me then I might push myself a bit more, using their help.
+\\LS:  You've been using the app for a couple of weeks not, how do you think using it has impacted your climbing?
+\\P6: I think it definitely makes you think a bit more when you're on the wall. I tend to be a bit more of a static climber as I'm not so strong as other people that I climb with, so I don't really make the big moves unless I absolutely have to. So yeah, the accelerometer data, there aren't that many big jumps on the graph, it tends to be a bit more steady.
+\\LS:  What does that mean for how you used the app?
+\\P6: I guess I have used the smoothness score thing, but if you compare me to someone with a more dynamic style, then maybe they'd be able to see better where they can make improvements. Because I'm quite a smooth climber anyway, I don't get as much out of that metric.
+\\LS:  Has it been of use in other ways? Can you sometimes see a difference?
+\\P6: Yeah I have still used it because I think it's good to do it over and over again on a climb, and as you get better... for example, if I just jump on a wall, on a route I've not looked at before, and I just set it to go, and then once I know the route, and am climbing it better, yeah I do see an improvement.
+\\LS:  Do you think it's had an impact on your climbing ability, using the app?
+\\P6: Not really no, but it does make me think a bit more when I'm climbing.
+\\LS:  What's your favourite aspect of the app?
+\\P6:L I thought it was really easy to use, just those two big start and stop buttons. It looks quite smart and professional, I like the colours, easy to use I'd say.
+\\LS:  What was your least favourite aspect of the app?
+\\P6: I don't like the fact that it's on a phone. When I climb, I don't have any pockets on my clothing, so I find it quite hard to put it somewhere, I stick it down my shorts and hope it doesn't fall out. I have also used it in a chalkbag, and use it like that, but it bangs around. What I'd like to see in the future is linking it to a wristband or a smartwatch or something...
+\\LS:  So like a lighter weight device separate...
+\\P6: Yeah I think that would be easier for women to use, when we don't have pockets in our clothes.
+\\LS:  Yeah, very true. So do you see the app as a training tool, or more adding more fun to climbing?
+\\P6: For me, I think it's more of a fun thing, but having seen other people use it, I can see how they use it to improve their climbing, and use it in training as well, but for me it's more for fun.
+\\LS:  So could you describe how you'd use it to make the climbs more fun?
+\\P6: I guess it's just interesting, so I could do a climb, and do it really messily, and jumping all over the place, and I see the great big spikes on the graph, and then I could put more thought into it, and be like "oh ok, i could do this", and like, yeah, see the difference.
+\\LS:  So is that on the easier or the harder climbs that you do that?
+\\P6: Yeah, it makes it more fun to climb the easier climbs repeatedly
+\\LS:  Any further points?
+\\P6: No, I think I've covered it all.. Yeah my favourite thing would be to see it in a lighter device, would make it easier to use, although the interface on the app itself is easy, like just some better way of carrying it. I dunno, like if you were to make it more interactive with the wall perhaps, like you can get those walls now that can make the holds light up... Maybe some future app where it can light up the wall, sorry that's really random
+\\LS:  No worries, haha, thanks very much

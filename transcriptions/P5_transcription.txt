@@ -1,0 +1,37 @@
+LS: Interview with participant number five, hello!
+\\P5:  Hello
+\\LS: First question, what do your climbing sessions usually involve?
+\\P5:  Usually just a couple of hours, of pretty light climbing if I'm honest, I've just started so haven't done a lot so far.
+\\LS: OK, So would you class those sessions as fun or training, or a mixture?
+\\P5:  Fun
+\\LS: How do you think using the app has impacted your climbing session today?
+\\P5:  I think it helps give me a better awareness of how I was doing on the wall. It's nice to see it displayed on a graph, rather that just trying to remember back to what you did on the wall, gave quite a nice representation of how you'd done that route, and where you could improve.
+\\LS: What would you say was your favourite aspect then?
+\\P5:  The graph visualisation, yeah.
+\\LS: What other features did you use?
+\\P5:  I used the smoothness rating a bit, but because I didn't really have an idea of where the scale went from and to on the rating, the number was a bit meaningless.
+\\LS: Yeah, that makes sense, it can take a few sessions before you get a good feel for what the numbers mean for you. \\What was your favourite part of using the app?
+\\P5:  It was very user-friendly, I liked the vibrations at the start, to let you know when to climb, that was a nice touch, so you have set it to go, you put it in your pocket, and you know its not recording before you've actually got on the wall.
+\\LS: And your least favourite?
+\\P5:  Probably the fact that you have to keep getting it out of your pocket, rather than just leaving it running for longer, so if I was going to have two of three attempts at the same climb, I could leave it running in my pocket the whole time, then get it out and review all three at the end perhaps.
+\\LS: Yeah, so not having to use the phone as often? Nice idea. Are you likely to use the app in the future?
+\\P5:  Yeah ... I think so, especially if I got more serious about climbing...
+\\LS: You are allowed to say no <laughs>
+\\P5:  <laugh> Yeah, but I think, as a training tool, you know, I think for fun climbers, I don't probably work on a single route enough to get as much real benefit from that app, but if I was training for climbing, and I was doing the same routes a couple of times a week, or a couple of times every session, then having that graph, and the smoothness rating and the data you get, would probably tell you quite a lot about where you were improving
+\\LS: So this is another question actually, do you see the app as more of a training tool then, rather than seeing it as a gamification tool, adding to the fun?
+\\P5:  Yeah, I think I'd use it more as a training tool, rather than adding to any of the fun aspects of climbing
+\\LS: Do you think the app helped or caused any improvements to you climbing?
+\\P5:  definitely when I was using it, it prompted me to think a lot more about how I was climbing, and making sure that I tried to be as smooth as possible on the wall, rather than just lunging for stuff.
+\\LS: So the pressure of the recording...
+\\P5:  Yeah, the pressure of it, at one point I didn't put it on, because I wasn't going for a hold that I knew I could get, because I knew it was in my pocket, recording how much I was moving on the wall, so I stopped...
+\\LS: So is that not always a good thing then, it making you think about smoothness?
+\\P5:  It is a good thing, but having an explanation of the data that the phone is collecting, so like the smoothness rating, having a number, I thought a bit... if it's too high, it's bad, if it's too low it's good, so when I'm climbing I'm just like "gotta get a low number, don't move too much on the wall", that kind of crept into my head. The graph though, that was my favourite bit.
+\\LS: Any features you'd like to see added or extended?
+\\P5:  Probably an expansion of the smoothness rating, so rather than just getting a single number at the end, so like your average score, you could have a bit on the app where you enter a particular route, and then it could produce a scale of expected smoothness rating, for that climber, on that route... 
+\\LS: Ok, sure...
+\\P5:  ..and then you could see how you've progressed over time, or if you've got a dynamic move on that wall, and you want to be really explosive, you can easily compare ratings between different repeats of the climb.
+\\LS: Yeah, there's that scrolling view of climbs currently, so a better...
+\\P5:  Yeah, so almost like being able to group climbs together, and comparing data across different sessions or climbs, rather than just that list of them all individually.
+\\LS: Cool yeah, any further points you'd like to make?
+\\P5:  Nope
+\\LS: Well, thanks very much for you time
