@@ -12,62 +12,131 @@
 % You might view an additional goal as giving the reader confidence that you are able to absorb, understand and clearly communicate highly technical material.
 
 \noindent
+Because this project covers several different aspects, in this chapter, I will outline and explore the current scientific literature concerning each of them, and the resulting implications on my study: data-augmentation for sport, data-collection for climbing analysis, and human-computer-interaction that has focused on climbers.
+Also, because there are some related climbing-orientated technologies already on the market, I will summarise some non-academic products at the cutting-edge, and explore where my project's niche fits in with those.
+
+% Also BMC Fundamentals?
 
 \section{Previous Sports-Data-Augmentation Studies}
+\subsection{Impact of Feedback on Sport Progression}
+The impact of appropriate feedback on motor skill acquisition has been widely studies in the field of psycho-kinesiology~\cite{schmidt75aschema, schmidt2005motor}.
+One of the earliest reviews of the impact that more modern computer-based feedback could have on athlete's performance is Liebermann et al's 2002 \textit{``Advances in the application of information technology
+to sport performance"}~\cite{lieberreview}, which discusses how video-based review systems, eye-tracking technology, and force-plates could all be used by coaches to provide an athlete with ``sophisticated and objective" feedback during a training session, leading to ``effective and efficient learning" across a wide variety of sports.
+
+Although one of the aims of the project was to not require a coach, the clearly-defined link between high-quality feedback and learning speed that was presented by those two papers was promising, especially paired with the many studies contained within that review that showed the efficacy of computer-aided feedback systems.
+
+In a 2006 study~\cite{bacafeedback}, Baca \& Kornfeind examined the use of advanced computerised ``Rapid Feedback Systems" in elite training for rowing, table-tennis and biathalon, resulting in a set of considerations and guidelines for when designing such a system.
+Among others, these included:
+\begin{itemize}
+    \item minimising the impact that the measurement system has on the athlete
+    \item ensuring the system is mobile, so usable at the training location, to prevent restriction to laboratory environments
+    \item providing a fast, comprehensible and easily-decipherable GUI
+    \item reducing the setup and training time required for proficient usage of the system.
+\end{itemize}
+
+Again, this study included the interaction of coaches, but it provided a useful conclusion and tips for developing my product going forwards.
+
+\subsection{Video}
+Using video-playback to aid in the analysis of sports performance is a common traditional coaching technique, with studies spanning the past four decades~\cite{sportperformance86, groomcoachperceptions, groomvideo}.
+With the development of more advanced computer-aided systems, it became possible for coaches to manually augment the videos with annotations and markers\cite{kinovea}, then interactively play back specific sections of the videos, which was shown by O'Donahue to have a beneficial effect on training and performance~\cite{odonovideo}.
+
+As Computer-Vision (CV) has become more sophisticated, the automation of some these video-annotations has become more accurate and prevalent~\cite{cvinsport}, but currently seems limited to semi-accurate player-location-detection, and fairly-inaccurate pose detection, which are very useful for overall analytics in some sports~\cite{pansiottenniscv}, but not for specific technique recommendations in others.
+
+Some systems, using multiple cameras along with reflective VICON markers placed on the body, can accurately detect movement, leading to successful automation of technique-coaching~\cite{automaticrowingcoach}
 
 
-non-climbing background
-- video analysis for sports
-acceleroometer data used elsewhere
-mobile phone running apps using pedometer etc
+\subsection{Wearables}
+If a single acceleration-recording wearable device can capture data that is rich enough to distinguish between levels of ability and technique, that was a very useful potential feature in the early idea-development of my project.
+In Ohgi's 2002 paper~\cite{oghiswim}, he showed that by attaching a small tubular device to a swimmer's wrist, and graphing the tri-axial time-series acceleration data that was recorded, it was possible to determine the full path of the arm-stroke, and distinguish between a stroke with good technique, and a later, more fatigued stroke with worse technique.
 
-??
+Building on this, in his 2009 review paper~\cite{callawayvideoacccomp} Callaway showed that for some sports, such as swimming, having multiple wearables on an athlete's body, providing accelerometer and gyroscopic measurements, can provide much better data and analytic feedback than the traditional video techniques.
+Instead of giving an overall impression of technique, measuring the angles, accelerations and velocities of various body-parts at different phases of swimming-stroke could result in technique-adjustment recommendations, although in that paper it was noted that the relative infantcy of the measurement technologies available at the time caused some accuracy issues that meant these recommendations were not precise enough for real usage.
 
+\subsubsection{Mobiles}
+The use of mobile phone devices to provide data for sports technique analysis seems to be an area with very little research.
+A common use of mobile devices is through using the accelerometer to provide a pedometer functionality, counting footsteps, a feature that comes built-in with many modern smartphones.
+However, this has been shown to be very innaccurate without extensive calibration, and often varies greatly between software and hardware used, with only GPS showing an accurate measurement of distance or speed travelled~\cite{pedometer}.
 
-\section{Previous Climbing-related HCI Research}
-
-
-Various aspects of adding computer-interaction to climbing have been studied in recent years: - using projectors to illuminate and gamify the climbing wall (https://dl.acm.org/citation.cfm?id=2581139) - using wearables to analyse and assess competitors abilities (https://axivity.com/case-studies/climbax) - assisting route-setters (https://www.ncbi.nlm.nih.gov/pubmed/22463006) - manufacturing custom lit holds to add variety to single routes (https://designawards.core77.com/interaction/51284/edge-an-interactive-training-wall-for-climbers) - using computer-vision to analyse the centre-of-mass of climbers, and thus technique https://www.sciencedirect.com/science/article/pii/S0167945707000395
-
-
-climbing with HCI in general, various types
-
-look up history? timeline
-
-projector stuff
-
-climbing wall - interactive weighted holds? - design concept?
+This lack of research into the area of could be attributed to the generally elite-athlete-orientated nature of the field, and the fact that often very specific hardware can be used, as the recreational sportsperson is not usually the target population as it is in this study.
 
 
-moving onto non-wall stuff, lightweight
-climbax study - uses metrics
-climbax wristbands
+\section{Climbing-related Research}
+\subsection{Data-Collection}
+
+\subsubsection{Computer Vision}
+Sibella et al performed an analysis of twelve climbers on a specially-constructed 3mx3m route, capturing their motion with reflective markers and a series of cameras~\cite{centreofmass}.
+By using computer vision to analyse ther climbers' centers-of-mass, the force, agility and power of each participant could be determined, and further testing showed that the better climbers minimised power and climbed more efficiently than the less experienced in the test group.
 
 
 
-\section{Current Climbing Technologies}
-the kickstarter that failed
+\subsubsection{Wearables}
+Multiple studies have looked into using wearable devices to record accelerometer data and correlate that data to various performance measures.
 
-iphone store apps - apple watch
-
-vertical life - outdoors climb-ticking-off app has started collabs with indoor gyms
-
-Lattice / climbax
+ClimbBSN~\cite{climbbsn} uses a specially-designed ear-worn  sensor to record tri-axis acceleration data, which is then analysed with a combination of Principal Component Analysis and Guassian Mixture Models to present climbing profiles for the four test climbers.
+This was used to show that the data collected from the sensors correlates strongly with the grade at which the climber was proficient at climbing, and could therefore be used to track progression in the future.
 
 
-trying to develop a middle ground, something that everyone can use without spending money on a specific device, yet still can provide data more meaningful than just logging climbs.
-
-nothing to visualise the climbs, no apps so far use recording or any video-analysis, before developing this app you could use an accelerometer to get some simple data (eg garmin's climbing setting), or get a mate to record you on your phone, but now linking that all together and making a historical record...
-
+ClimbAX, developed in 2013, \cite{climbaxstudy} is a similar system that uses wearables on all four limbs over a series of climbing sessions, to accurately assess performance, leading to successful predictions of results in a later competition.
+The study presents itself as the first step towards an enthusiast-orientated coaching system, and in the six years since a startup of the same name have been working on building that, but with no product near market yet.
 
 
+\subsection{Climbing-HCI Research}
+Various aspects of adding computer-interaction to climbing have been studied in recent years.
+
+\subsubsection{Visualisation}
+A prototype visualisation platform for the above ClimbAX system was developed, analysed and evaluated by Niederer et al~\cite{niederervis}
+Their logbook-style interactive web-app, which implemented and displayed the analyses developed in the ClimbAX study in a clean interface, alongside graphs of performance over time, was well-received in their usability study and reviews.
+
+\subsubsection{Projectors}
+Kajastila et all developed a system that uses an array of projectors and laser-sensors to illuminate a climbing wall~\cite{projectedclimbwall}.
+This succeeded in giving the ultimate real-time feedback with no attached sensors: climbers could climb like normal but see either games, staticstics or timers projected above and around them.
+However, the very specialist apparatus must be set up and calibrated for a specific wall with specific holds, meaning that although derivatives of the technology have been sold to various climbing centres, it is not feasible for the individual climber to use unless they travel to one of these few walls whilst they are set up.
+
+\subsubsection{Setters}
+One climbing-related HCI study that didn't directly interact with climbers was StrangeBeta\cite{strangebeta}, which linked mathematical chaos with machine-learning to assist route-setters - the people who design and set indoor routes.
+
+
+\subsubsection{Custom Holds}
+Edge~\cite{edgeinteractive} is a system involving custom climbing holds that have built-in sound, light and haptic feedback mechanisms, and link to wrist- and ankle-bands.
+It guides the climber up the wall, indicating which limb should contact which part of which hold as the climber, resulting in a variety of different routes for a single route set.
 
 
 
-\subsection{Previous HCI Mobile UI Research}
 
-app design research?
-eg max-menu item stuff
+\section{Other Climbing Technologies}
+\subsection{Products and Apps}
+\subsubsection{Logging}
+The traditional form of data-collection for climbing is in the form of a logbook: a small booklet that climbers can use to log each climb they successfully ascent, with notes on date, time, location, grade, type and ease.
+This has been reflected in a multitude of mobile applications and website that supply the same basic feature: to record and list climbs.
+Some of these apps also have graphing features, showing the progression of the average and the maximum grades of climb summitted over time~\cite{verticallife}.
+
+\subsubsection{Logging aided by accelerometer data}
+One interactive device that was lauded by the press upon initial announcement was the Whipper~\cite{whipper}, a clip-on accelerometer linked to an app, that made over twice its funding goal on IndieGoGo but unfortunately never came to fruition.
+The basic idea was a way to accentuate logbook apps with some more accurate data-collection through acclerometer, GPS and barometric (height) sensors.
+They also claimed to be able to automatically determine the name and grade of the climb just from this data - a tough task that many commentators believed led to the company's eventual downfall.
+
+Despite the rising popularity of fitness-tracking smartwatches from manufacturers such as Garmin and FitBit, these devices do not have any functionality for climbing-specific recording other than logging time spent doing the activity.
+With Apple's latest smartwatch allowing app developers to access raw accelerometer data, some apps have been developed that use this to passively track a climbing session, recording number of climbs and time spent climbing vs resting~\cite{chalkprint}.
+
+\subsubsection{Computer-aided Technique Analysis}
+Lattice Training is a company set up by two climbing coaches and personal trainers, with the aim of assessing and planning climbing training with a rigorous data-led approach~\cite{lattice}.
+They use a variety of strength and endurance tests on specialist equipment, and after analysing the data of hundreds of climbers, have developed a series of statistical measures that can link each strength test to expected grade of climbing ability, highlighting weaknesses to be worked on.
+They have also released an accompanying mobile app for logging workouts. 
+Their system has shown that by using data-collection for meaningful training over long periods of time,  climbers can progress much more efficiently and quickly, but this expensive and intense product is too much for the average recreational climber.
+
+
+
+\subsection{Where AugKlimb fits in}
+The main aim of this project was to develop a product that fills the gap between the simplistic lists of climbs presented by the logging apps and the elite-level coaching or data analytics offered to the athletes.
+Something for the average recreational climber to use in a more casual every-day fashion, but that still provides meaningful data augmentations.
+
+
+
+
+% \section{Previous HCI Mobile UI Research}
+
+% app design research?
+% eg max-menu item stuff
 
 
 
