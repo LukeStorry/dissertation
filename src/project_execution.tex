@@ -3,18 +3,45 @@
 
 
 \section{Introduction}
-The main activity of this project was the development of a mobile app that can usefully analyse intermediate climbers' technique and then provide them with various data whilst they training or climb for fun.
+The main activity of this project was the development of a mobile app that can usefully analyse intermediate climbers' technique and then provide them with various data whilst they climbing, whether it be for training or fun.
+To do this, I performed a User-Centred iterative design process, with four large main iterations, and many smaller ones to guide along the way.
+
 
 \subsection{User-Centred Iterative Design}
-aims
+Throughout the execution of the development of this project, I followed the guidelines of both the Iterative Design and User-Centred Design methodologies.
 
-iteration
+\subsubsection{Iterative Design}
+Iterative Design is a methodology where a cyclic process of prototypes, tests, analysis, and refinements of a product are made.
+See Figure~\ref{fig:iter}.
 
-spiral
 
-testing
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{imgs/iterativeloop}
+\caption{Diagram of the Iterative Development Model.  \textit{\small Westerhoff [Public domain], via Wikimedia Commons}}
+\label{fig:iter}
+\end{figure}
 
-\section{Initial Survey}
+After some initial plans have been made, a set of requirements are laid out, then some very basic form of the product is implemented, before being tested to gain feedback, then this feedback is evaluated to inform the next cycle's planning stage.
+This process then repeats, gradually refining the product and gaining stronger insights into the user's requirements.
+In this project, four major iterations took place, which the majority of this chapter is dedicated to outlining.
+
+
+\subsection{User-Centred Design}
+Because this project is aiming to build a product that most closely matches the needs and wants of local recreational climbers, I decided to use the User-Centred design approach, which states ``users should be involved throughout the project development
+process"~\cite{ISO9241-210}.
+In order to do this, I met and discussed with the users throughout every stage of the Iterative Design process detailed above, not just the Testing Phase.
+
+Therefore, within and alongside the larger iterations, minor iterative loops took place, where users were consulted repeatedly, their test-responses evaluated and suggested changes implemented, during the implemenation of each major feature.
+
+
+
+\section{Iteration \#1: Wizard-Of-Oz Prototypes}
+In this first large iteration, I gathered initial thoughts and requirements from climbers via a survey, and then trialled some of these in a series of wizard-of-oz tests to glean the probable requirements of the users.
+Then, after implementing a prototype app, I brought it back to the users again to test, evaluating their responses to bring me forward.
+
+
+\subsection{Initial Survey}
 To inform my first forays into the project, I released a questionnaire online.
 The questions can be found in Appendix~\ref{appx:survey} and my Ethics Application can be found in Appendix~\ref{appx:1-ea}.
 I shared links to this survey across a variety of local climbing club pages, and received 49 responses in total. 
@@ -22,7 +49,8 @@ It must be mentioned that approximately half of these responses came in after I 
 This is a benefit of an online survey, as I got a much broader reach, quantity and range of responses compared to if I had performed a more traditional paper survey at a climbing wall.
 
 
-\subsection{Survey Respondents}
+\subsubsection{Survey Respondents}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=10cm]{imgs/surveydemographics}
@@ -36,7 +64,6 @@ This was aided by efforts to spread the survey link across a range of local clim
 
 With three-quarters of the respondents self-describing as intermediate climbers, the survey predominately hit the target audience for the project. 
 Although all the responses were taken into account, a more heavy weighting was placed on the suggestions given by intermediates compared to the lower and higher abilities.
-
 
 
 \subsection{Insights Gained From the Survey}
@@ -83,14 +110,37 @@ Both centre-of-gravity and limb-annotation could be feasible achieved with compu
 However, if beta-detection has been ruled out as too difficult for CV/AI, then giving accurate technique advice is even further out of the range of potential features: with the high complexity of movements in the sport, years of learning required to achieve coaching qualifications, and the high risk of injury if incorrect, giving explicit advice about how to climb is not something that I wanted to go into with this project.
 
 One metric that was proposed is the analysis of efficiency or ``smoothness" in a climb.
-A commonly accepted signifier of ``good technique" is when a climber moves neatly and directly between each successive climb, without any jerky motions or unnecessary readjustments.
+A commonly accepted signifier of ``good technique" is when a climber moves neatly and directly between each successive climb, without any jerky motions or unnecessary readjustments~\cite{centreofmass}.
 An accelerometer recording could be used to determine this metric and thus this suggestion was also brought forward to the next stage of testing.
 
 
+\subsection{Feasibility and Potential Limitation of Video Analysis}
+The initial survey showed interest in using CV to either give feedback about climbing technique, or to point out where nearby handholds were.
+To those ends, I began experimenting with using OpenCV to detect blobs in previous recordings of my own climbing.
 
-\section{Fundamental Early Decisions for Development}
+Although some small success was had in detecting the centre of body mass, and some nearby coloured handholds, the wide variety of different lighting conditions and noise from the low-res camera made the detections very inaccurate.
+Another issue that arose was that the code would analyse the video very slowly, even on my PC with a graphics card, so converting that to battery-efficient code that could run in real-time on a mobile device would have been extremely difficult.
+Due to the time-scope of this project, and the aims being to iteratively develop something and analyse how climbers interacted with such a product, I was wary of spending too much time trying to get video-detection working.
 
-\subsection{Platform Choice}
+
+\subsection{Wizard-Of-Oz Prototypes and Tests}
+To determine the requirement for this video feature vs using an accelerometer to provide data input, a series of informal discussions and wizard-of-oz (WOZ) tests were performed at a climbing wall with 3 boulderers.
+This involved me writing a script, and showing images of potential screen displays when they performed an action or climbed.
+
+Now knowing the probable abilities of the CV's video-analysis, which was either to label limbs and centre of mass on a video output, or to state nearby handholds during the climb, I acted out both of those features in a WOZ format, and the results of that test was that they were determined to be potentially useful.
+However, the labelled video feature was stated to be only slightly better than just watching a video playback, and the inefficiency of setting up a phone to point at a wall to call out handholds with some delay was not something that excited the climbers.
+
+The WOZ prototype that involved having an accelerometer data showing up on a graph with some form of "smoothness rating" was received well in the testing, and I felt that it would be a good idea to explore that route with the iterative testing and design, whilst also working on some of the video analysis in the background.
+
+
+\section{Iteration \#2: Acceleration}
+Now I had completed this first iteration, and roughly knew which features and form-factors the users wanted, I had to design and implement a prototype.
+
+\subsection{Fundamental Early Decisions for Development}
+% Now I had completed the planning and requirements stages of the iterative design process, and roughly knew which features and form-factors the users wanted, I had to design and implement a prototype.
+In order to do this, I had to make some choices regarding the tools I'd be using.
+
+\subsubsection{Platform Choice}
 Despite researching a variety of different devices and form factors, one of the key aims of the project was always to make the final product as accessible as possible, therefore a OS-independent mobile app was decided upon after reviewing the survey results.
 By not using any extra equipment such as wristbands or 3d-cameras, the scope and ability of the final product could be limited - by lack of sensors and processing power - however limiting the need for anything but just a phone, which almost everyone owns, was a worthwhile sacrifice.
 As well as making user-testing much easier, this choice also helped narrow down the direction of the project: working solely within the limits of what a mobile app could achieve meant that the capabilities of that platform could be fully stretched and explored.
@@ -98,48 +148,32 @@ As well as making user-testing much easier, this choice also helped narrow down 
 The two inputs that mobiles can easily capture and that would potentially be most useful for the analysis of climbing technique were video recordings and accelerometer data.
 Video recordings can be analysed with various Computer Vision (CV) techniques and accelerometer data can be shown on a graph and analysed statistically to provide various outputs.
 
-
-\subsection{Tool Selection}
-\subsubsection{Development tool}
+\subsubsection{Tool Selection}
+\paragraph{App-development tool}
 Next was to find a app-development tool that is quick and easy to use (for quick repeated iterations of the app), can easily import or link to the OpenCV Library (for the CV aspect), and is platform-independent (so any mobile phone owners can use the app, irrespective of OS).
 
 Unity was chosen as it meets all three of those requirements, with a wide variety of ``Assets" (downloadable open-source libraries) that can be imported.
 Also having used the tool for games development in the past I was very familiar with using Unity, and knew that iterating over app designs would be quick and easy enough, compared to potentially wasting time learning how to use other tools when this one met all the requirements with the added benefit of previous experience using the tool.
 
-\subsubsection{Version Control}
+\paragraph{Version Control}
 For version-control I used \verb|git|, backed-up on GitHub.
 Being a one-person project I rarely bothered with the overhead of using different branches, but the ability to roll-back to working code and releases, and to \verb|stash| and \verb|pop| various files at different times was very useful during development.
 Once or twice a week, after a new feature or big set of fixes had been added, I would up-version the app, and release a compiled .apk binary to the project's GitHub page.
 This allowed the easy re-installing of older versions when trying to locate a bug, as well as a clear documentation of all fixes and features included at each minor version upgrade.
 
 
-\section{Initial Wizard-Of-Oz Study}
-The initial survey showed interest in using CV to either give feedback about climbing technique, or to point out where nearby handholds were.
-To those ends, I began experimenting with using OpenCV to detect blobs in previous recordings of my own climbing.
-
-% Note: should this be in another section?
-Although some small success was had in detecting the centre of body mass, and some nearby coloured handholds, the wide variety of different lighting conditions and noise from the low-res camera made the detections very inaccurate.
-Another issue that arose was that the code would analyse the video very slowly, even on my PC with a graphics card, so converting that to battery-efficient code that could run in real-time on a mobile device would have been extremely difficult.
-Due to the time-scope of this project, and the aims being to iteratively develop something and analyse how climbers interacted with such a product, I was wary of spending too much time trying to get video-detection working.
 
 
-To determine the requirement for this video feature vs using an accelerometer to provide data input, a series of informal discussions and wizard-of-oz tests were performed at a climbing wall with 3 boulderers.
-Knowing the probable abilities of the CV's video-analysis, which was either to label limbs and centre of mass on a video output, or to state nearby handholds during the climb, both features were determined to be potentially useful.
-However, the labelled video feature was stated to be only slightly better than just watching a video playback, and the inefficiency of setting up a phone to point at a wall to call out handholds with some delay was not something that excited the climbers.
-Having an accelerometer data showing up on a graph with some form of "smoothness rating" was received well in the testing, and I felt that it would be a good idea to explore that route with the iterative testing and design, whilst also working on some of the video analysis in the background.
+\subsection{First app: Recorder}
+After the success of the accelerometer idea in the previous iteration's tests, I decided to build a real app based around this, to use in some real in-field testing.
 
-
-\section{First Prototype}
-
-\subsection{Simple Recorder}
-After the success of the accelerometer idea at the wizard-of-oz stage, I decided to build a very simple app to use in some actual in-field studies.
 This first app just had a two buttons, START and STOP, which would, respectively, start and stop recording the mobile phone's raw accelerometer data into a \verb|.csv| file.
 
 \subsubsection{Axes Selection}
 The accelerometer's API allowed me to collect data from each of the individual axes, so it seemed like a good idea to use this to determine and compare acceleration vertically vs horizontally, which was a potentially useful feature.
-However, after viewing the raw data output from the first climbing session, it became clear that the phone's axes would very rarely match up with the real-world axis in any meaningful way, and even some sort of calibration at the start of the climb would quickly become meaningless as the climber rotates and moves up the wall, as can be seen in in Figure <<>>.
-
-<diagram/pic of phone axes whilst in climbers pocket>
+However, after viewing the raw data output from the first climbing session, it became clear that the phone's axes would very rarely match up with the real-world axis in any meaningful way, and even some sort of calibration at the start of the climb would quickly become meaningless as the climber rotates and moves up the wall.
+% , as can be seen in in Figure <<>>.
+% <diagram/pic of phone axes whilst in climbers pocket>
 
 Therefore just the total magnitude of the vector-sum of the acceleration measured along all three axes was used going forward.
 
@@ -155,8 +189,7 @@ During this first test, the lack of an in-app output was an obvious limitation, 
 
 I then met up again with the climbers from that test-day at the wall, and we discussed the graphs and could recognise which climbers were climbing which climbs, just from the spikes on each line graph; this was the first time I saw a clear correlation between the acceleration and the climbing style and ability, an exciting result.
 
-
-\subsection{First In-App Statistics}
+\subsection{In-App Statistics}
 The testers enjoyed viewing the graphs I had produced, so I started working on adding graphs to the app.
 Unfortunately here I hit the first limitation of the tool I was using - Unity.
 Primarily designed as a Games Engine, Unity didn't have an easy method of plotting graphs, and any Asset Store solutions were expensive to buy. 
@@ -164,16 +197,12 @@ A solution involving drawing dots on the screen for every data point, and calcul
 Also, I had another testing day scheduled with my climbers, so wanted to quickly code a simpler form of output to see how they interacted with the data.
 Simply calculating the min and max acceleration, and the time taken to climb, only took a few lines of code, and so the second prototype of my app included a screen that would display those statistics after a climb.
 
-During the test session, both of the people I was climbing with enjoyed using their max acceleration in such a way that it seemed to gamify the climbs.
-Gamification is the .... <cite> 
-competitive aspect
-%%%%%%%%% Add more description about gamification %%%%%%%%%%%
+During the test session, both of the people I was climbing with enjoyed using their max acceleration in a fun and competitive manner.
 
 They took it in turns trying to produce as much acceleration, or "power", as possible on some climbing moves, and also compared times whilst slowly doing easier climbs, trying to keep their max acceleration down to as low a score as possible, and doing certain climbing moves with as much or as little speed as possible.
 When the potential of a "smoothness" score was brought up in discussions, they told me that a statistic other than just max acceleration, and more closely linked to actual climbing technique, would be very useful.
 
-
-\section{Development of Smoothness Score}
+\subsection{Development of Smoothness Score}
 Seeing a range of graphs on the spreadsheet software (similar to Figure~\ref{fig:twoclimbsgraph} but with many more climbs) was very interesting.
 Some climbs' graphs were consistently fluid with no big spikes, some were mostly flat with a few large spikes, and some had a lot of small spikes, which clearly showed that there were discernible differences between the accelerometer data produced by different climbs, something I intended to utilise.
 
@@ -195,35 +224,34 @@ The aim of good climbing technique is to prevent this early tiring, and reduce a
 However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
 Instead I opted to try and find some form of quantifiable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet didn't have an absolute limit or goal, to keep the flexibility required between different climbs and different sensors.
 
-\subsection{Four Alternatives}
+\subsubsection{Four Alternatives}
 No prior research has been done into a metric such as this.
 Although many studies <cite> cover the measurement of the smoothness of a line, finding a measurement that could utilise this smoothness to distinguish between climbing styles has not previously been attempted.
 
 I decided to test out a range of different options, on real climbing data, to determine which score was the closest representation of climbing style.
 To aid with the gamification and comparison of climbs, the metric should be able to distinguish between different climbs; if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reflect that by changing in a predictable manner.
 
-
-\subsubsection{Mean}
+\paragraph{Mean}
 $$\frac{\sum n }{N}$$
 The simplest statistical measure was worth testing: a large amount of higher accelerations would result in a higher mean, which would possibly show differences in climbing style.
 
-\subsubsection{Variance}
+\paragraph{Variance}
 $$\frac{\sum (n - \bar{n} )^2 }{N-1}$$
 Again, a classical statistical metric that had potential: measuring how varied the accelerometer data-points are is linked to the above discussion on how more ``spiky" graphs often portray less smooth climbs.
 
-\subsubsection{Average squared difference between each consecutive data-point}
+\paragraph{Average squared difference between each consecutive data-point}
 $$\frac{\sum (n_i - n_{i+1} )^2 }{N}$$
 Taking variance a step further, and calculating the pairwise differences in the dataset could give a good measure of how ``jumpy" the chart is.
 By measuring the differences in acceleration, this statistic works in much the same way as finding the average squared ``jerk", which is the derivative of the acceleration.
 
-\subsubsection{Single-Lagged Auto-Correlation}
+\paragraph{Single-Lagged Auto-Correlation}
 $$
 \frac{\sum(n_{i} - \bar{n})(n_{i+k} - \bar{n})}
       {\sum(n_{i} - \bar{n})^{2} }
 $$
 My idea for using this metric was that if each data-point is closely correlated with its successive data-point, then the overall line would have less jolts, but run in a more smoothly varying way.
 
-\subsection {Testing}
+\subsubsection {Comparative Testing}
 I had three test climbers climb three different routes, in either a deliberately static style, a deliberately dynamic style, or their usual style: a hybrid of the two.
 Using the data recorded from these climbs, I calculated each of the above metrics, visible in Table~\ref{tab:smoothnesses}.
 
@@ -250,8 +278,7 @@ pink v2 route & 2 & dynamic & 0.16 & 10.32 & 1.12 & 0.25 & 0.15 & 1826.36 \\ \hl
 
 As can be seen, despite both the var-diff and the lagged-autocorr algorithms showing some promise, the only metric that can reliably distinguish between the three styles of climbing is the variance, so this is the score I took forward.
 
-
-\subsection{Confirmatory Testing of Variance}
+\subsubsection{Confirmatory Testing of Variance}
 In the app, I added a calculation at the end of the accelerometer-recording, which would display the variance to the user on the app screen immediately upon completing a climb.
 
 Taking this back to the test-users, they agreed that this metric was much better for them being able to compete on a climb, both with themselves and with each other, to get "as static a climb as possible", meeting the requirements for this score.
@@ -259,11 +286,10 @@ Taking this back to the test-users, they agreed that this metric was much better
 One point they did raise was that comparing a score of, for example, $0.21234$ and $0.17018$, felt odd.
 My testers found comparing and discussing numbers in the 20-100 range much easier and more natural, so on the next iteration of the app, before displaying the variance I multiplied it by a hundred and displayed it as an integer.
 
-
-\section{Graphing Acceleration Data}
+\subsection{Graphing Acceleration Data}
 Now that I had a working "score" that I could analyse user interaction with, I moved onto the next feature that my testers requested: plotting and showing a graph of the accelerometer data in the app.
 
-\subsection{Timing Issues}
+\subsubsection{Timing Issues}
 For the first version of my graphs, I simply plotted a rudimentary scatter-graph:
 within a given box on the screen, for each data-point $n$ in the accelerometer recording, I drew a small circle object $n$ pixels up, and spread the dots across so they stretched to fill the width of the box.
 
@@ -282,16 +308,16 @@ Therefore, to fix these issues, I forced the app to remain in portrait mode, and
 
 Despite fixing this consistency of timings, I also re-wrote the graph-drawing code to take into account the associated timestamp for each point.
 
-\subsection{Using Lines instead of dots}
+% \subsection{Using Lines instead of dots}
 
-(is this section necessary?)
+% (is this section necessary?)
 
-The dots graph had some gaps in, so testers asked why not use lines.
+% The dots graph had some gaps in, so testers asked why not use lines.
 
-(could describe the pair-wise datapoint trigonometry with a few diagrams, and screenshots to show improvements)
+% (could describe the pair-wise datapoint trigonometry with a few diagrams, and screenshots to show improvements)
 
 
-\section{Viewing Previous Climbs}
+\subsection{Viewing Previous Climbs}
 Up until this point, the statistics and graphs of each climb had been only visible directly after a climb had been completed, and to compare climbs the users had to memorise the previous climb's smoothness score and roughly how the graph looked, to then hope to improve.
 
 Viewing a list of all the previous climbs, with associated smoothness scores and graphs, was the obvious (and much-requested) next feature to add.
@@ -317,13 +343,17 @@ After some testing it was found that a scale of 100px per second was optimum for
 <insert screenshot>
 
 
-\section{Combining with Video}
-One tester suggested that as it was now possible to scroll horizontally through a climb's graph, using that scrollbar to also view frames of a connected video file could be a useful feature.
+
+
+
+\section{Iteration \#3: Video}
+In this section I outline the third major iteration cycle: the incorporation of video footage and frame-by-frame playback linked to the acceleration graphs created previously.
+
+
+One tester had suggested that as it was now possible to scroll horizontally through a climb's graph, using that scrollbar to also view frames of a connected video file could be a useful feature.
 
 One option would be to use the phone to record a video, and get the accelerometer data from a wristband or other device.
 However, keeping in with the theme of accessibility and only using a mobile app, the idea of connecting two mobile phone devices, so a friend with the app could video-record you as you climbed with the accelerometer feature, was chosen.
-
-
 
 
 \subsection{Networking Options}
@@ -371,7 +401,6 @@ During testing, climbers could record a climb, view it, and then hit the Share b
 Despite the time spent on unsuccessfully trying to get Bluetooth working with my plugin, by simply using this same button, my testers could use Bluetooth instead of the messaging app to send the climb files - a slightly more convoluted approach to simply bumping two phones together, but one that worked more reliably when Bluetooth stopped working, which it did occasionally on one of my test devices.
 
 
-
 \subsection{Video Player}
 Now that there was a way of sharing climb-data-files, it was time to add the video-scrolling feature.
 
@@ -410,10 +439,16 @@ This more convoluted way of displaying video wasn't as smooth to playback the vi
 
 % Turning off multithreaded rendering makes video playback much smoother, but results in the frame not jumping to the selected one as easily, or at all, on slower android devices.
 
+\subsection{Testing}
+The testing phase of this major iteration was successful: users enjoyed viewing the video footage alongside the graphs, and made a few other suggestions for Ui improvements for the next stage too, but the app was nearly ready for deployment.
 
 
 
-\section{Code Refactor}
+
+\section{Iteration \#4: Final Improvements and Deployment}
+Now that the app was relatively stable and the two big features (acceleration and video) were working well together, it was time to clean up the code, implement the list of small requests that had been piling up, and then deploy the app, publishing it on the Play Store.
+
+\subsection{Code Refactor}
 Because I was starting to send climbing files between devices, I needed a more reliable way of exporting and parsing those files, especially with the added complexity of having video-paths and other information attached to them, the plain csv files were not sufficient.
 Also, having gradually built up the app with a script file per-view, for example one script to handle the recording and another to handle the viewing, as I added more features and file information, the code-base was getting convoluted.
 
@@ -443,11 +478,8 @@ If the cache is empty when queried, it will contact the \verb|FileHandler| and p
 % Infinite loop caused by self-initialising cache being updated by loader, which then causes the self-initialisation again. - selfinitialisaion checking for null, then reeiving full list, rather than asking for its list to be populated. Tied cache-updating to the saving of files instead of the loading of files.
 
 
-
-
-
-\section{Testing-driven UI Improvements}
-Alongside this set of larger features being developed, my twice- or thrice-weekly testing sessions were also provoking a range of smaller UI tweaks.
+\subsection{Testing-driven UI Improvements}
+Alongside the Video feature being developed and tested, my twice- or thrice-weekly testing sessions had provoke a range of smaller UI tweak and improvement suggestions, so I implemented all of those as I prepared the app for the first full deployment:
 
 \subsubsection{Countdown}
 One of the earliest of these was that starting recording as soon as the START button was pressed would record the acceleration caused by the climber putting their phone in their pocket and walking up to the wall.
@@ -467,37 +499,42 @@ The horizontal location of the scrollbar was detected, and after a confirmation 
 To keep down clutter, testers had previously requested the ability to delete old or mis-recorded climbs, so now that each climb had its own page, a button was added that would remove the currently-open climb from the device.
 
 
-\subsection{Back Button}
+\subsubsection{Back Button}
 For Android, I removed the in-app back button, instead using the native OS's API to detect when the phone's back button had been pressed and returning the user to the previous screen, integrating the users' usage more closely to what they are used to from other apps.
 
 
 
+\subsection{Publishing to Google Play}
+As I don't have either a Mac or an iPhone, despite my choices to use a platform-independant software tool, I was only able to build to Android throughout this project.
+That meant that the natural distribution service to use was Google Play.
 
-\section{Google Play Store}
-One obstacle that all my testers faced was how to install the app.
-With such an iterative development processes, I was recording the app every day and trying two or three different versions each week.
-This required either me lending one of my mobile devices to the testers to use, or side-loading an .apk file onto the users' phones, disabling various security measures to install the app each time.
-
-As this fast initial pace of development slowed down, and I wanted to give a more stable version of the app to a wider range of testers over the Easter break, I opted to sign and distribute it via the official Google Play Store.
-
-To ensure that the general public did not have access to this app, but only participants who had consented to be a part of this study, I did not release a full production version of the app, but used Google's Limited Beta Rollout feature to only provide beta access to the testers that I had given links to.
+Publishing to that store required a developer account, images of the app in use, various review procedures, and for me to write both a code of conduct and a privacy policy.
 
 This Play Store listing can be seen \href{https://play.google.com/store/apps/details?id=com.lukestorry.augKlimb}{here}, with a screenshot in Figure~\ref{fig:playstore}.
 
-\begin{figure}{h}
+
+\begin{figure}[h]
 \centering
 \includegraphics[width=9cm]{imgs/playstorescreenshot}
 \caption{Screenshot of Play Store Listing}
 \label{fig:playstore}
 \end{figure}
 
-Having the app on the Play Store not only made it a lot easier to upgrade the app on everyone's phones before each testing session, but the added legitimacy provided by not having to side-load the apk meant that a wider variety of people felt comfortable installing the app from a provided link.
+To ensure that the general public did not have access to the test versions of this app, but only participants who had consented to be a part of this study, I did not release a full production version of the app, but used Google's Limited Beta Rollout feature to only provide beta access to the testers that I had given links to.
+
+
+\subsection{Easier testing}
+One obstacle that all my testers had faced throughout the project was how to install the app.
+With such an iterative development processes, I was recording the app every day and trying two or three different versions each week.
+This required either me lending one of my mobile devices to the testers to use, or side-loading an \verb|.apk| file onto the users' phones, disabling various security measures to install the app each time.
+
+Having the app on Google Play not only made it a lot easier to upgrade the app on everyone's phones before each testing session, but the added legitimacy provided by not having to side-load the apk meant that a wider variety of people felt comfortable installing the app from a provided link.
 This caused the amount of testers who were regularly using and testing the app to increase from 4 to 15, providing a rich variety of feedback from regular users of all abilities, both through occasional conversations and through the feedback form I had linked to the homepage of the app.
 
 
 
 
-\section{Final UI Improvements from Tests}
+\subsection{Final UI Improvements from Tests}
 Having more testers, each using the app slightly differently, led to a wide range of feedback, advice, and suggested improvements.
 Also, the testing being on an assortment of different devices highlighted a range of small bugs that were either non-existent or at least infrequent on my own devices.
 Few of these are worth mentioning, usually just requiring corrections to button-placement or changing the configuration of the file browser.
