@@ -5,8 +5,11 @@
 
 \section{Main Achievements}
 % Resummarise the main contributions and achievements, in essence  summing up the content.
+The main achievement of this project was the development of the \verb|augKlimb| app.
 
+My iterative user-centric process involved over $60$ hours of in-field observations of (and discussions with) climbers interacting with various prototypes, culminating in a market-ready app that is published and deployed online.
 
+For a final evaluation, I interviewed six climbers who had been using the app, and then conducted a thematic analysis of the interview transcripts, gaining a deep understanding of the app's impact on the climbers using it, along with its various use-cases, benefits and limitations. 
 
 
 
@@ -18,26 +21,21 @@
 % and evaluate what has been achieved with respect to the initial aims and objectives
 % (e.g., ``I completed aim X outlined previously, the evidence for this is within Chapter Y'').
 % There is no problem including aims which were not completed, but it is important to evaluate and/or justify why this is the case.
+\subsection{App developed}
+Iterative design never truly ends, and the series of interviews I conducted at the end of this project highlighted many potential directions I could take the app in the future, which I intend to continue doing even after the completion of this project - I go into more detail below.
+However, in order to conduct that final usability study, I drew a line and deployed a fully-working version of the app, which is on the Google Play store, and is currently being used on a regular basis by around 15 local climbers, something I am very proud of.
 
+\subsection{Features}
+The app can can record the acceleration of a climber, displaying it as a graph, and annotate second-by-second smoothness ratings.
+A video can be optionally linked to the graph, providing context to the peaks and troughs, and enabling frame-by-frame playback of the climb.
 
+Although these are good features, and allow both deep and shallow levels of technique feedback, they are not as technically advanced as I was hoping to achieve when I first started this project.
+By restricting myself to a mobile phone as the device being used (a deliberate choice prompted by both my initial survey and my want for the final product to be as accessible as possible), I was limited to only 2D video and 1D accelerometer data as possible inputs.
+In my rush to get a coded prototype out to testing, I didn't spend a lot of time experimenting with video-based analysis techniques, but built an accelerometer-based app, planning to revisit the possibility of CV at a later date.
+Inevitably, as my I iterated through the development, effectively adding extra visualisations and analytic each time, the core essence of the app remained centred on the accelerometer as the primary method of input.
 
-original aims:
-Must Have: Atleast 2 wizard-of-oz prototypes to test user interaction and preferences.
-A final product that implements some of the features at a low-fi level. Some form of testing and analysis of both prototypes and the final product.
-Full ethics and health-and-safety approval.
-
-
-Should Have:
-An analysis of the current needs and wants of both developing intermediate-level climbers.
-A final product that fully works and is very useful for intended purpose.
-Plenty of user testing to give both qualitative and quantitative results for both the prototypes and final design.
-
-Could Have: Strong usage of User-centred-design techniques.
-Usage of a very novel technology/technologies as part of the final product.
-An excellent writeup analysing choices and mistakes made along the development process.
-A final product that is ready for market.
-
-
+Perhaps if I were to do this project again, I would spend more time at the beginning developing a CV-based analysis feature, which just feels more interesting and innovative than graphs and statistics based on acceleration data. 
+However, I still believe that in the context of a user-centred design, and given the time constraints of the project, I made the right choices given what I knew at the time.
 
 
 
@@ -48,9 +46,73 @@ A final product that is ready for market.
 % Rather than treat this only as an exercise in what you {\em could} have done given more time, try to focus on any unexplored options or interesting outcomes
 % (e.g., ``my experiment for X gave counter-intuitive results,this could be because Y and would form an interesting area for further study'' or ``users found feature Z of my software difficult to use, which is obvious in hindsight but not during at design stage; to resolve this, I could clearly apply the technique of Smith [7]'').
 
-Two directions came out of the interviews:
-taking the app more in the training direction, adding more analysis and possibly re-visitng the CV-aided technique analysis.
-Also the gamification, and social aspect of that, for instance turning the app into a literal game, with points scored per climb and online connectivity with friends.
+\subsection{Short-Term}
+The interviews and subsequent analysis acted as part of the Iterative Design cycle, so my immediate inclination is to act upon those easier-to-implement suggestions, and improve the app by such as adding an introductory guide, the ability to link data from repeated attempts at the same climb, and the ability to share or compare scores over social media.
+
+
+\subsection{Mid-Term}
+The unexplored option of CV-analysis, potentially aided by cloud-computing, would be an interesting area for future development.
+Especially as the last major iterative loop was to add video-playback to the app, recording and importing videos are a part of the current user-pattern, and so gradually starting to use these to produce more statistics would be a good idea.
+
+One of the major issues with the app currently is the difficulty in transferring and importing the video or climbing files between devices.
+This was mainly caused by the usage of Unity as the app-development tool, and although Unity was great for the quick iteration and testing of a simple app, now a more refined idea of what the app's features and requirements are, potentially porting it over to another platform that doesn't offer as much speed or iterative support, but instead offers better device-connectivity options, could be a decision I make in the future.
+This would also potentially open up the ability for the app to interface with wearables or smartwatches, a mcuh-requested feature that was not possible with Unity.
+
+
+\subsection{Long-Term}
+When it comes to a more general direction in which to take the app, two potential suggestions came out of the interviews:
+\begin{itemize}
+    \item Increase the analytical component of the app - add goals, technique drills and plans, long-term progression tracking, and other training-oriented features.
+    \item Accentuate the capacity for gamification - add more social features, maybe even moving towatds turning the app into a literal game, with points scored per climb and online connectivity with friends.
+\end{itemize}
+
+
+
+
+\section{Comparison to Original Aims}
+My general aim was to iteratively build a working and useful product, and then analyse how the data given to climbers was used, with a set of hypotheses.
+
+I managed to successfully meet both of these aims, although at times they had slight conflicts.
+If developing the best app possible had been my only goal, then I would have included guides on how to interpret the data, and examples of how the app can be used in different ways.
+However, this set of instructions would have severely limited my ability to analyse how the climbers themselves interpreted the data, and so the version of the app I used for the final study did not include them, which caused issues as were highlighted through the ``Ease-Of-Use" and ``Complexity of analytics" themes in the TA.
+
+
+From my original proposal, my more detailed aims were as follows:
+\begin{itemize}
+    \item Must Have:
+    \begin{itemize}
+        \item  At least 2 wizard-of-oz prototypes to test user interaction and preferences.
+        \item A final product that implements some of the features at a low-fi level.
+        \item  Some form of testing and analysis of both prototypes and the final product.
+        \item Full ethics and health-and-safety approval.
+    \end{itemize}
+    
+    \item Should Have:
+    \begin{itemize}
+        \item An analysis of the current needs and wants of intermediate-level climbers.
+        \item A final product that fully works and is very useful for intended purpose.
+        \item Plenty of user testing to give both qualitative and quantitative results for both the prototypes and final design.
+    \end{itemize}
+    
+    \item Could Have: 
+    \begin{itemize}
+        \item Strong usage of User-centred-design techniques.
+        \item Usage of a very novel technology/technologies as part of the final product.
+        \item A final product that is ready for market.
+        \item An excellent writeup analysing choices and mistakes made along the development process.
+    \end{itemize}
+\end{itemize}
+
+The Must-Haves were very conservative, so I easily met those aims.
+
+I partially met all the Should-Haves: whether the final app is \textit{very} useful is a subjective matter I am not entirely sure about, it is certainly useful in some ways, but also has its limitations; as for user-testing, I conducted a lot of that, but the closest I got to using quantitative data was for the development of my smoothness score.
+
+Moving onto the Could-Have aims: I definitely followed a very user-centred-design-centred methodology; my main source of dissatisfaction with the project is the lack of a very novel technology in the final product - as explained above, I prioritised user-centrism over novelty of features; my final product is not only ready for market, it is in the market and being actively used, yet can definitely be improved-upon, especially after my deeper analysis of its limitations.
+
+As for the final Could-Have, I have attempted to analyse the choices and mistakes made throughout my project, but I leave it to the reader to decide whether this writeup is excellent or not.
+
+
+
 
 
 
