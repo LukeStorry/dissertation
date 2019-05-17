@@ -231,17 +231,17 @@ Alongside this, occasionally some harder climbs call for bigger ``dynamic" moves
 
 
 What the coaches I spoke to said they would generally judge as a climb with poor technique is one where many small inefficient and jerky movements were made: the repeated re-gripping of holds can lead to early forearm tiring, and the uncontrolled and ungainly fluctuation of momentum of the overall body mass is very inefficient.
-The aim of good climbing technique is to prevent this early tiring, and reduce as much inefficiency in movement as possible, as these are often the factors that prevents the successful summit of a harder climb. <TODO citation?>
+One aim of good climbing technique is to prevent this early tiring, and reduce as much inefficiency in movement as possible, as these are often the factors that prevents the successful summit of a harder climb.
+%citation?
 
 However, because climbing technique and style can be very variant among both climbers and between each climb on a wall, there was no way to provide an accurate "best" or "aim" score, especially when variations in the acclerometer recordings on different phones is taken into account.
 Instead I opted to try and find some form of quantifiable metric that, as the testers had suggested, was more closely linked to climbing style than just minimum or maximum acceleration, yet didn't have an absolute limit or goal, to keep the flexibility required between different climbs and different sensors.
 
 \subsubsection{Four Alternatives}
-No prior research has been done into a metric such as this.
-Although many studies <TODO citation> cover the measurement of the smoothness of a line, finding a measurement that could utilise this smoothness to distinguish between climbing styles has not previously been attempted.
+Although previous studies\cite{climbaxstudy, climbbsn} use machine-learning techniques to train classifiers that can predict ability, attempting to directly analyse the smoothness of a graphed acceleration data-set to distinguish between climbing styles has not previously been attempted.
 
 I decided to test out a range of different options, on real climbing data, to determine which score was the closest representation of climbing style.
-To aid with the gamification and comparison of climbs, the metric should be able to distinguish between different climbs; if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reflect that by changing in a predictable manner.
+To aid with the comparison of climbs, the metric should be able to distinguish between different styles: if a climber is repeatedly trying to climb as statically and smoothly as possible, then the score should be able to reflect that by changing in a predictable manner.
 
 \paragraph{Mean}
 $$\frac{\sum n }{N}$$
@@ -335,25 +335,33 @@ Up until this point, the statistics and graphs of each climb had been only visib
 Viewing a list of all the previous climbs, with associated smoothness scores and graphs, was the obvious (and much-requested) next feature to add.
 
 Because of the way that I had been saving the accelerometer recordings to the phone's persistent memory for debug purposes, I could scrape that folder for all csv files, and populate a scrolling list with a set of graphs and smoothness scores.
-See figure <TODO>
+See Figure~\ref{fig:scrollview} for the final display of this.
 
-< TODO insert screenshot of scrollview>
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{imgs/scrollview}
+\caption{augKlimb's scrolling view-all-climbs page}
+\label{fig:scrollview}
+\end{figure}
+
 
 \subsection{Viewing Individual Climbs}
 By viewing how my testers used this scrolling view, to compare previous climbs' graphs and smoothness scores, I also noticed that they would occasionally touch a climb's graph with a finger.
 When asked about this action, they told me that they had instinctively clicked, with the expectation that they could load that specific climb and view more information on it.
-Therefore I added another page into the project, to view an individual climb's graph in full-screen detail, with more statistics like smoothness and time taken all on that screen.
-
-<TODOscreenshot>
-
+Therefore I added another page into the project (see Figure~\ref{fig:singleclimb}), to view an individual climb's graph in full-screen detail, with more statistics like smoothness and time taken all on that screen.
 
 
 \subsubsection{Horizontal Scale}
 With the full-screen view of an individual climbing graph now possible, a discussion of scale was needed. 
-Whereas in the scroll-view of all the climbs, the graphs were scaled to fit the whole dataset inside the given box (again see Figure <TODO>), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
+Whereas in the scroll-view of all the climbs, the graphs were scaled to fit the whole data-set inside the given box (again see Figure~\ref{fig:scrollview}), one of the main expectations of the per-climb graph view was that graphs would be "zoomed-in" to see more detail.
 After some testing it was found that a scale of 100px per second was optimum for viewing the acceleration's spikes with enough clarity whilst also not making the longer climbs to have an excessively long scroll to view. 
-<TODO insert screenshot>
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{imgs/singleclimb}
+\caption{augKlimb's single-climb-viewing page}
+\label{fig:singleclimb}
+\end{figure}
 
 
 
@@ -393,8 +401,8 @@ The requirement to add some sort of user profiles, or unique code to differentia
 Although this may be something to look into in the future a cloud server isn't the solution to this specific problem, and is not really within the scope of this project.
 
 \subsubsection{Wifi-Direct}
-<TODO insert definiton>
-Although this seems like a great technology, and could be ideal for this specific use case, the few docs<TODOinsert ref?> I could find online that detailed using Wifi-Direct with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
+Wifi-Direct enables the direct connection and file-transfer between compatible devices
+Although this seems like a great technology, and could be ideal for this specific use case, the few docs I could find online that detailed using Wifi-Direct with Unity stated that many parts of this feature had been deprecated, and was closely linked to the now-obsolete Unity Networking API.
 
 
 \subsubsection{Bluetooth \& NFC}
@@ -501,8 +509,8 @@ Also, a lot of questions were asked when climbers first started using the app, s
 
 
 \subsubsection{Cropping}
-As can be seen in Figure <TODO screenshot>, sometimes when reaching the top of a climb, testers would just jump off, and land on the floor.
-This obviously created quick a large spike on the accelerations graph, and had a resultantly large impact on the smoothness score.
+Sometimes when reaching the top of a climb, testers would just jump off, and land on the floor.
+This created a large spike on the accelerations graph, and had a resultantly large impact on the smoothness score.
 Thus a button was added to "crop" a climb's graph.
 The horizontal location of the scrollbar was detected, and after a confirmation from the user, any climbing recording data after that point would be removed.
 
@@ -569,11 +577,18 @@ One of the most common user-flows that I observed during the testing was repeate
 To make a more coherent link between the overall smoothness-score and the graphs, I implemented the suggestion of calculating the per-second smoothness-score and including those on the graphs.
 However, despite some users appreciating the added clarity of scores, some disliked the multitude of numbers everywhere, and felt that the graph was becoming very cluttered, with axis labels and lines and now scores, it was hard to see what was going on.
 To aid with this visual, I vastly reduced the font-size of the smoothness scores, 
-and instead portrayed the varying per-second score through changing the darkness of the background.
+and instead portrayed the varying per-second score through changing the darkness of the background - see Figure~\ref{fig:finalclimbview}.
+
 Users could now quickly scroll through the graph to the darkest section, and see which portion of their climb was causing the smoothness score to be high.
 
 
-< TODO add comparative screenshots here too>
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{imgs/finalclimbview}
+\caption{The final version of augKlimb's single-climb-viewing page}
+\label{fig:finalclimbview}
+\end{figure}
+
 
 
 
@@ -586,8 +601,15 @@ Others, who were just using the smoothness-score, only wanted to view that metri
 
 Differing proposals for improvements from both groups initially caused me to alter the app in each direction in turn, only when revisiting my changelog later did I notice that on a weekly basis I was switching back and forth between a very simplistic  UI and one that provided a lot of data, just dependant upon whose feedback I had been exposed to on those development and testing days.
 To solve this, I invited three testers who fell across the above range, and prompted a discussion between them around both what they would expect to see, and what they wanted to see.
-A compromise was formed, where the initial recording page showed nothing but the time elapsed and the smoothness score, with a shortcut link to that climb's specific page, which could contain the full list of statistics, graphs, editing abilities and video-linking facilities.
+A compromise was formed, where the initial recording page showed nothing but the time elapsed and the smoothness score (see Figure~\ref{finalrecorderview}), with a shortcut link to that climb's specific page, which could contain the full list of statistics, graphs, editing abilities and video-linking facilities.
 
-<TODOinsert screenshots of final views>
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{imgs/finalrecorderview}
+\caption{The final version of augKlimb's post-recording view}
+\label{fig:finalrecorderview}
+\end{figure}
 
 
