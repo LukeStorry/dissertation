@@ -18,7 +18,7 @@ LS:  This is the interview with participant three.
 \\P3:  The stats. I loved the gamification, wanting to get the scores as high or as low as possible, that is quite good fun, because its like, ok how can I be better
 \\LS:  ok yeah, so is that against yourself or others?
 \\P3:  Just against myself by repeating a climb or between climbs yeah
-\\LS:  What was your leas
+\\LS:  What was your least favourite aspect of the app?
 \\P3:  Having to stop and start each time, and having to... I guess I'm just really bad at turning the screen off by accident, or pressing stop when it's in my pocket
 \\LS:  So if you had to suggest an improvement to the app, would that be it?
 P3:  I guess the easiest improvement would be to add a key, or give  a simpler star rating or something, because saying is a high number good or bad, or what is expected for a smooth or dynamic climb's score. Being a bit of a noob climber, I don;t really know what some of the stats mean.
